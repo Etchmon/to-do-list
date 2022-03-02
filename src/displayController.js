@@ -8,7 +8,7 @@ export const displayController = (() => {
 
     const createDom = () => {
 
-        const element = document.createElement('section');
+        const element = document.createElement('div');
 
         element.setAttribute('id', 'content');
         element.appendChild(nav());
