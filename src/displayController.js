@@ -1,4 +1,4 @@
-import nav from './nav';
+import { nav, form } from './components';
 
 // Export a auto running displayer controlle module
 // ----Functions to add-------
@@ -12,6 +12,7 @@ export const displayController = (() => {
 
         element.setAttribute('id', 'content');
         element.appendChild(nav());
+        element.appendChild(form());
 
         document.body.appendChild(element);
     }
