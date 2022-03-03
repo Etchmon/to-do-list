@@ -37,11 +37,13 @@ export const toDoManager = (() => {
     //     console.log('hi')
     // }
 
-    const addToDo = (e) => {
+    function addToDo(e) {
         e.preventDefault();
 
         const title = displayController.querySelector('#task-title').value;
-        console.log(title);
+        console.log(this.parentElement.title.value)
+        const data = new ToDo(this.parentElement.title.value);
+        console.log(data);
     }
 
     return { addToDo }

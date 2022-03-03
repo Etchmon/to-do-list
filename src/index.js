@@ -8,5 +8,6 @@ displayController.createDom();
 
 displayController.querySelector('#button').onclick = toDoManager.addToDo;
 
+// displayController.querySelector('#button').addEventListener('click', toDoManager.addToDo);
 
 

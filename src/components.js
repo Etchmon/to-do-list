@@ -1,3 +1,5 @@
+import { toDoManager } from "./toDoManager";
+
 export const nav = () => {
     const element = document.createElement('nav');
     const title = document.createElement('h1');
@@ -30,7 +32,7 @@ export const form = () => {
         className: 'form',
         id: 'form',
         action: '/dist/index.html',
-        method: 'POST'
+        method: 'POST',
     });
     Object.assign(title, {
         type: 'text',
@@ -53,7 +55,7 @@ export const form = () => {
         name: 'prioity'
     });
     Object.assign(button, {
-        // type: 'submit',
+        type: 'submit',
         id: 'button'
     })
 
