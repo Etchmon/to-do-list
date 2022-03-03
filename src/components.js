@@ -20,6 +20,7 @@ export const form = () => {
     const description = document.createElement('textarea');
     const dueDate = document.createElement('input');
     const priority = document.createElement('select');
+    const button = document.createElement('button');
 
     Object.assign(element, {
         className: 'form-container',
@@ -47,14 +48,20 @@ export const form = () => {
     Object.assign(priority, {
         id: 'task-prioity'
     });
+    Object.assign(button, {
+        type: 'submit',
+        id: 'button'
+    })
 
     legend.innerHTML = 'New Task';
+    button.innerHTML = 'Add Task';
 
     form.appendChild(legend);
     form.appendChild(title);
     form.appendChild(description);
     form.appendChild(dueDate);
     form.appendChild(priority);
+    form.appendChild(button);
 
     element.appendChild(form);
 
