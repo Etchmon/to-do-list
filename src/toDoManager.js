@@ -32,9 +32,11 @@ export const toDoManager = (() => {
     const addToDo = (e) => {
         e.preventDefault();
 
-        const toDo = new ToDo;
+        const newToDo = new ToDo;
 
         console.log(todo);
     }
+
+    return
 
 })();
