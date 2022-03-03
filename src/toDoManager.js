@@ -1,3 +1,4 @@
+import { displayController } from "./displayController";
 // Export auto running toDoManager module
 // -----Functions to add-------
 // create/removeProject, create/removeToDo, getProject, changeProject, editToDo, deleteToDo
@@ -29,14 +30,20 @@ export const toDoManager = (() => {
         }
     }
 
+    // function handleSubmit(e) {
+    //     e.preventDefault();
+    //     const data = new ToDo(this.title.value, this.description.value, this.dueDate.value, this.priority.value);
+    //     addToDo(data);
+    //     console.log('hi')
+    // }
+
     const addToDo = (e) => {
         e.preventDefault();
 
-        const newToDo = new ToDo;
-
-        console.log(todo);
+        const title = displayController.querySelector('#task-title').value;
+        console.log(title);
     }
 
-    return
+    return { addToDo }
 
 })();

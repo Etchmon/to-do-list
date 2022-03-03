@@ -1,4 +1,6 @@
 import { nav, form } from './components';
+import _ from 'lodash';
+
 
 // Export a auto running displayer controlle module
 // ----Functions to add-------
@@ -9,13 +11,23 @@ export const displayController = (() => {
     const createDom = () => {
 
         const element = document.createElement('div');
+        element.innerHTML = _.join();
 
         element.setAttribute('id', 'content');
         element.appendChild(nav());
         element.appendChild(form());
 
+
+
+
         document.body.appendChild(element);
     }
 
-    return { createDom }
+    const querySelector = (selector) => {
+        const element = document.querySelector(selector);
+
+        return element;
+    }
+
+    return { createDom, querySelector }
 })();

@@ -29,27 +29,31 @@ export const form = () => {
     Object.assign(form, {
         className: 'form',
         id: 'form',
-        action: '#',
+        action: '/dist/index.html',
         method: 'POST'
     });
     Object.assign(title, {
         type: 'text',
         id: 'task-title',
         maxlength: '30',
+        name: 'title'
     });
     Object.assign(description, {
         id: 'task-description',
-        rows: '4'
+        rows: '4',
+        name: 'description'
     });
     Object.assign(dueDate, {
         type: 'date',
-        id: 'task-due-date'
+        id: 'task-due-date',
+        name: 'dueDate'
     });
     Object.assign(priority, {
-        id: 'task-prioity'
+        id: 'task-prioity',
+        name: 'prioity'
     });
     Object.assign(button, {
-        type: 'submit',
+        // type: 'submit',
         id: 'button'
     })
 
