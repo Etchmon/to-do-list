@@ -29,6 +29,12 @@ html {
   font-size: 3rem;
 }
 
+.main-view {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
 .add-btn {
   border: none;
   height: 5rem;
@@ -37,8 +43,21 @@ html {
   font-size: 2rem;
   border-radius: 50%;
   background-color: lightseagreen;
+
+  grid-row: 1 / -1;
+  grid-column: 1 / -1;
 }
 
 .hide-form {
   display: none;
+}
+
+.card {
+  padding: 2rem;
+  border: 1px solid lightseagreen;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  hyphens: manual;
 }

@@ -158,6 +158,11 @@ export const card = () => {
     const cardDescription = document.createElement('p');
     const cardDate = document.createElement('span');
 
+    element.setAttribute('class', 'card');
+    cardTitle.setAttribute('class', 'card-title');
+    cardDescription.setAttribute('class', 'card-description');
+    cardDate.setAttribute('class', 'card-date');
+
     element.appendChild(cardTitle);
     element.appendChild(cardDescription);
     element.appendChild(cardDate);
