@@ -63,6 +63,28 @@ export const sideBar = () => {
 
 }
 
+export const main = () => {
+    const element = document.createElement('section');
+    const header = document.createElement('div');
+    const view = document.createElement('div');
+    const button = document.createElement('button');
+
+    element.setAttribute('class', 'main');
+    header.setAttribute('class', 'main-header');
+    view.setAttribute('class', 'main-view');
+    button.setAttribute('class', 'add-btn');
+
+    header.innerHTML = 'All Tasks';
+    button.innerHTML = '+';
+
+    view.appendChild(button);
+
+    element.appendChild(header);
+    element.appendChild(view);
+
+    return element;
+}
+
 export const form = () => {
     const element = document.createElement('div');
     const form = document.createElement('form');
