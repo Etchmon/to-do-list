@@ -34,7 +34,15 @@ export const displayController = (() => {
         form.className = 'form-container hide-form';
     }
 
+    const _clearView = () => {
+        const view = document.querySelector('.main-view');
+        const button = view.firstChild;
+        view.innerHTML = '';
+        view.appendChild(button);
+    }
+
     const renderAll = () => {
+        _clearView();
         const todos = toDoManager.getToDos();
         const view = document.querySelector('.main-view');
 
@@ -42,10 +50,12 @@ export const displayController = (() => {
             // create a card
             // set the innerHTML of card elements
             // append it to main-view
-            view.appendChild(card());
-            console.log(card().querySelector('h1'));
-            card().querySelector('h1').innerHTML = toDo.title;
-            console.log(toDo.title);
+            const element = card();
+            element.querySelector('h1').innerHTML = toDo.title;
+            element.querySelector('p').innerHTML = toDo.description;
+            element.querySelector('span').innerHTML = toDo.dueDate;
+            view.appendChild(element);
+
         })
     }
 
