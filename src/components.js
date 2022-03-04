@@ -1,17 +1,66 @@
-import { toDoManager } from "./toDoManager";
+import HomeIcon from './home.png';
+import Logo from './checkbox.png';
+import ProjectIcon from './lightbulb-group.png';
 
-export const nav = () => {
-    const element = document.createElement('nav');
-    const title = document.createElement('h1');
+export const sideBar = () => {
+    const element = document.createElement('section');
+    const logoBox = document.createElement('div');
+    const header = document.createElement('h1');
+    const linkBox = document.createElement('div');
+    const home = document.createElement('a');
+    const projects = document.createElement('a');
+    const logo = new Image();
+    const homeIcon = new Image();
+    const projectIcon = new Image();
 
-    element.setAttribute('class', 'nav');
-    title.setAttribute('class', 'logo');
+    element.setAttribute('class', 'side-bar');
+    logoBox.setAttribute('class', 'logo-box');
+    header.setAttribute('class', 'side-bar-header');
+    linkBox.setAttribute('class', 'link-box');
 
-    title.innerHTML = "To Do App";
+    Object.assign(home, {
+        className: 'home-link',
+        href: '#'
+    });
+    Object.assign(projects, {
+        className: 'projects-link',
+        href: '#'
+    });
+    Object.assign(logo, {
+        className: 'logo',
+        alt: 'logo'
+    });
+    Object.assign(homeIcon, {
+        className: 'icon',
+        alt: 'home'
+    });
+    Object.assign(projectIcon, {
+        className: 'icon',
+        alt: 'projects'
+    })
 
-    element.appendChild(title);
+    logo.src = Logo;
+    homeIcon.src = HomeIcon;
+    projectIcon.src = ProjectIcon;
+
+
+    header.innerHTML = 'To Do App';
+    home.innerHTML = 'Home';
+    projects.innerHTML = 'Projects';
+
+    logoBox.appendChild(logo);
+    logoBox.appendChild(header);
+
+    linkBox.appendChild(homeIcon);
+    linkBox.appendChild(home);
+    linkBox.appendChild(projectIcon);
+    linkBox.appendChild(projects);
+
+    element.appendChild(logoBox);
+    element.appendChild(linkBox);
 
     return element;
+
 }
 
 export const form = () => {
@@ -25,7 +74,7 @@ export const form = () => {
     const button = document.createElement('button');
 
     Object.assign(element, {
-        className: 'form-container',
+        className: 'form-container hide-form',
         id: 'form-container',
     });
     Object.assign(form, {

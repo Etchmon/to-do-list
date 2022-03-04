@@ -1,4 +1,4 @@
-import { nav, form } from './components';
+import { sideBar, form } from './components';
 import _ from 'lodash';
 
 
@@ -14,7 +14,7 @@ export const displayController = (() => {
         element.innerHTML = _.join();
 
         element.setAttribute('id', 'content');
-        element.appendChild(nav());
+        element.appendChild(sideBar());
         element.appendChild(form());
 
 

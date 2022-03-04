@@ -30,20 +30,13 @@ export const toDoManager = (() => {
         }
     }
 
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-    //     const data = new ToDo(this.title.value, this.description.value, this.dueDate.value, this.priority.value);
-    //     addToDo(data);
-    //     console.log('hi')
-    // }
-
     function addToDo(e) {
         e.preventDefault();
 
-        const title = displayController.querySelector('#task-title').value;
-        console.log(this.parentElement.title.value)
-        const data = new ToDo(this.parentElement.title.value);
-        console.log(data);
+        const data = new ToDo(this.parentElement.title.value, this.parentElement.description.value, this.parentElement.dueDate.value);
+        todos.push(data);
+        console.log(todos);
+        console.log(todos[0]);
     }
 
     return { addToDo }
