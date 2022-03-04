@@ -6,7 +6,9 @@ import { toDoManager } from './toDoManager';
 
 displayController.createDom();
 
-displayController.querySelector('#button').onclick = toDoManager.addToDo;
+document.querySelector('.add-btn').onclick = displayController.showForm;
+document.querySelector('#submit-btn').onclick = toDoManager.addToDo;
+document.querySelector('#close-btn').onclick = displayController.closeForm;
 
 // displayController.querySelector('#button').addEventListener('click', toDoManager.addToDo);
 

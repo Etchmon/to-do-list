@@ -1,4 +1,5 @@
-import { sideBar, main, form } from './components';
+import { sideBar, main, form, card } from './components';
+import { toDoManager } from './toDoManager';
 import _ from 'lodash';
 
 
@@ -21,11 +22,32 @@ export const displayController = (() => {
         document.body.appendChild(element);
     }
 
-    const querySelector = (selector) => {
-        const element = document.querySelector(selector);
+    const showForm = () => {
+        const form = document.querySelector('.form-container');
 
-        return element;
+        form.className = 'form-container';
+    };
+
+    const closeForm = () => {
+        const form = document.querySelector('.form-container');
+
+        form.className = 'form-container hide-form';
     }
 
-    return { createDom, querySelector }
+    const renderAll = () => {
+        const todos = toDoManager.getToDos();
+        const view = document.querySelector('.main-view');
+
+        todos.forEach(toDo => {
+            // create a card
+            // set the innerHTML of card elements
+            // append it to main-view
+            view.appendChild(card());
+            console.log(card().querySelector('h1'));
+            card().querySelector('h1').innerHTML = toDo.title;
+            console.log(toDo.title);
+        })
+    }
+
+    return { createDom, showForm, closeForm, renderAll }
 })();

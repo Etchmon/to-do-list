@@ -6,8 +6,8 @@ import { displayController } from "./displayController";
 export const toDoManager = (() => {
 
     let currentProject = 'Default';
-    let projects = [];
-    let todos = [];
+    let projects = []; // an array of objects containing an array of objects
+    let todos = []; // array of all todos
 
     const changeProject = (newProject) => {
         currentProject = newProject;
@@ -15,6 +15,13 @@ export const toDoManager = (() => {
 
     const getProject = () => {
         return currentProject;
+    }
+
+    class Project {
+        constructor(title) {
+            this.title = title,
+                this.array = []
+        }
     }
 
     class ToDo {
@@ -30,6 +37,10 @@ export const toDoManager = (() => {
         }
     }
 
+    const getToDos = () => {
+        return todos;
+    }
+
     function addToDo(e) {
         e.preventDefault();
 
@@ -37,8 +48,16 @@ export const toDoManager = (() => {
         todos.push(data);
         console.log(todos);
         console.log(todos[0]);
+        displayController.renderAll();
     }
 
-    return { addToDo }
+    // function createProject(e) {
+    //     // create a class Project that includes title and empty array
+    //     e.preventDefault();
+
+    //     const data = new Project()
+    // }
+
+    return { addToDo, getToDos }
 
 })();

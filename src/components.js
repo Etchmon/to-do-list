@@ -93,7 +93,8 @@ export const form = () => {
     const description = document.createElement('textarea');
     const dueDate = document.createElement('input');
     const priority = document.createElement('select');
-    const button = document.createElement('button');
+    const submitButton = document.createElement('button');
+    const closeButton = document.createElement('button');
 
     Object.assign(element, {
         className: 'form-container hide-form',
@@ -125,22 +126,41 @@ export const form = () => {
         id: 'task-prioity',
         name: 'prioity'
     });
-    Object.assign(button, {
+    Object.assign(submitButton, {
         type: 'submit',
-        id: 'button'
+        id: 'submit-btn'
+    })
+    Object.assign(closeButton, {
+        type: 'button',
+        id: 'close-btn'
     })
 
     legend.innerHTML = 'New Task';
-    button.innerHTML = 'Add Task';
+    submitButton.innerHTML = 'Add Task';
+    closeButton.innerHTML = 'Close';
 
     form.appendChild(legend);
     form.appendChild(title);
     form.appendChild(description);
     form.appendChild(dueDate);
     form.appendChild(priority);
-    form.appendChild(button);
+    form.appendChild(submitButton);
+    form.appendChild(closeButton);
 
     element.appendChild(form);
+
+    return element;
+}
+
+export const card = () => {
+    const element = document.createElement('div');
+    const cardTitle = document.createElement('h1');
+    const cardDescription = document.createElement('p');
+    const cardDate = document.createElement('span');
+
+    element.appendChild(cardTitle);
+    element.appendChild(cardDescription);
+    element.appendChild(cardDate);
 
     return element;
 }
