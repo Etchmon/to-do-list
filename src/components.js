@@ -19,11 +19,11 @@ export const sideBar = () => {
     linkBox.setAttribute('class', 'link-box');
 
     Object.assign(home, {
-        className: 'home-link',
+        className: 'link',
         href: '#'
     });
     Object.assign(projects, {
-        className: 'projects-link',
+        className: 'link',
         href: '#'
     });
     Object.assign(logo, {
