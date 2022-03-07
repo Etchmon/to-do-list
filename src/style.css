@@ -37,8 +37,8 @@ html {
 
 .main-view {
   display: grid;
-  grid-template-rows: min-content 1fr;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: min-content;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   padding: 1rem;
   background-color: rgb(207, 245, 242);
 }
@@ -52,7 +52,7 @@ html {
   border-radius: 50%;
   background-color: lightseagreen;
 
-  grid-row: 1 / -1;
+  grid-row: 1 / 1;
   grid-column: 1 / -1;
 }
 

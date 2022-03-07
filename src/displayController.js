@@ -45,6 +45,7 @@ export const displayController = (() => {
         _clearView();
         const todos = toDoManager.getToDos();
         const view = document.querySelector('.main-view');
+        let i = 0;
 
         todos.forEach(toDo => {
             // create a card
@@ -54,7 +55,9 @@ export const displayController = (() => {
             element.querySelector('h1').innerHTML = toDo.title;
             element.querySelector('p').innerHTML = toDo.description;
             element.querySelector('span').innerHTML = toDo.dueDate;
+            element.setAttribute('key', i);
             view.appendChild(element);
+            i++;
 
         })
     }
