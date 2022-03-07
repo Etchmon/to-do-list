@@ -112,6 +112,18 @@ html {
   display: none;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+  border-radius: 5px;
+}
+
+.form input,
+textarea {
+  border: none;
+}
+
 .card {
   padding: 2rem;
   border: 1px solid lightseagreen;

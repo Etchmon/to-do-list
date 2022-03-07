@@ -110,12 +110,14 @@ export const form = () => {
         type: 'text',
         id: 'task-title',
         maxlength: '30',
-        name: 'title'
+        name: 'title',
+        placeholder: 'Title:'
     });
     Object.assign(description, {
         id: 'task-description',
         rows: '4',
-        name: 'description'
+        name: 'description',
+        placeholder: 'Description:'
     });
     Object.assign(dueDate, {
         type: 'date',
