@@ -22,6 +22,12 @@ html {
   background-color: lightseagreen;
 }
 
+.main {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  grid-template-columns: 1fr;
+}
+
 .main-header {
   height: 10vh;
   padding: 1rem;
@@ -33,6 +39,8 @@ html {
   display: grid;
   grid-template-rows: min-content 1fr;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  padding: 1rem;
+  background-color: rgb(195, 241, 238);
 }
 
 .add-btn {
@@ -60,4 +68,5 @@ html {
   flex-direction: column;
   overflow-wrap: break-word;
   hyphens: manual;
+  cursor: pointer;
 }
