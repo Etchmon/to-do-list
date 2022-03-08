@@ -97,6 +97,13 @@ export const main = () => {
     return element;
 }
 
+export const projectForm = () => {
+    const element = document.createElement('div');
+    const form = document.createElement('form');
+    const legend = document.createElement('legend');
+    const title = document.createElement('input');
+}
+
 export const form = () => {
     const element = document.createElement('div');
     const form = document.createElement('form');
