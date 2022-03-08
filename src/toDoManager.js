@@ -1,7 +1,12 @@
 import { displayController } from "./displayController";
 // Export auto running toDoManager module
-// -----Functions to add-------
-// create/removeProject, create/removeToDo, getProject, changeProject, editToDo, deleteToDo
+// -----To Do-------
+// When creating a task in the all task page, add task to default project
+// Create add project button, creates and object with a title and an array and adds it to the projects array onclick
+// Add the title of projects to the the sidebar
+// Display all the todos from the project when sidebar link is clicked
+// Always add todo to default project as well as current project
+// Edit Todos and project, recreate form filled with data from item being edited
 
 export const toDoManager = (() => {
 
@@ -55,19 +60,18 @@ export const toDoManager = (() => {
         e.preventDefault();
 
         let num = this.getAttribute('key');
-
         todos.splice(num, 1);
         console.log(todos);
         displayController.renderAll();
     }
 
-    // function createProject(e) {
-    //     // create a class Project that includes title and empty array
-    //     e.preventDefault();
+    function createProject(e) {
+        // create a class Project that includes title and empty array
+        e.preventDefault();
 
-    //     const data = new Project()
-    // }
+        const data = this;
+    }
 
-    return { addToDo, getToDos, removeToDo }
+    return { addToDo, getToDos, removeToDo, createProject }
 
 })();

@@ -4,8 +4,10 @@ import _ from 'lodash';
 
 
 // Export a auto running displayer controlle module
-// ----Functions to add-------
-// createDOM to create the html elements, set their id's and classes || fill with dummy data if no data available
+// ----To Do-------
+// create renderProjects function that renders all the project titles to main view
+// create renderProjectToDos function to render a specific projects todos to main view
+// create updateLinks function, run it when new project is added to update sidebar links to include project titles
 
 export const displayController = (() => {
 
@@ -42,6 +44,7 @@ export const displayController = (() => {
     }
 
     const renderAll = () => {
+
         _clearView();
         const todos = toDoManager.getToDos();
         const view = document.querySelector('.main-view');

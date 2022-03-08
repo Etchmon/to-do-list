@@ -2,6 +2,13 @@ import HomeIcon from './home.png';
 import Logo from './checkbox.png';
 import ProjectIcon from './lightbulb-group.png';
 import { toDoManager } from './toDoManager';
+import { add } from 'lodash';
+
+// -----To Dos--------
+// create add project button, add it to sidebar
+// add div to hold project titles, indent it from projects link
+// create form for project creation
+
 
 export const sideBar = () => {
     const element = document.createElement('section');
@@ -10,6 +17,7 @@ export const sideBar = () => {
     const linkBox = document.createElement('div');
     const home = document.createElement('a');
     const projects = document.createElement('a');
+    const addProject = document.createElement('button');
     const logo = new Image();
     const homeIcon = new Image();
     const projectIcon = new Image();
@@ -18,6 +26,7 @@ export const sideBar = () => {
     logoBox.setAttribute('class', 'logo-box');
     header.setAttribute('class', 'side-bar-header');
     linkBox.setAttribute('class', 'link-box');
+    addProject.setAttribute('class', 'add-project-btn');
 
     Object.assign(home, {
         className: 'link',
@@ -48,6 +57,7 @@ export const sideBar = () => {
     header.innerHTML = 'To Do App';
     home.innerHTML = 'Home';
     projects.innerHTML = 'Projects';
+    addProject.innerHTML = '+';
 
     logoBox.appendChild(logo);
     logoBox.appendChild(header);
@@ -56,6 +66,7 @@ export const sideBar = () => {
     linkBox.appendChild(home);
     linkBox.appendChild(projectIcon);
     linkBox.appendChild(projects);
+    linkBox.appendChild(addProject);
 
     element.appendChild(logoBox);
     element.appendChild(linkBox);
