@@ -51,6 +51,16 @@ export const toDoManager = (() => {
         displayController.renderAll();
     }
 
+    function removeToDo(e) {
+        e.preventDefault();
+
+        let num = this.getAttribute('key');
+
+        todos.splice(num, 1);
+        console.log(todos);
+        displayController.renderAll();
+    }
+
     // function createProject(e) {
     //     // create a class Project that includes title and empty array
     //     e.preventDefault();
@@ -58,6 +68,6 @@ export const toDoManager = (() => {
     //     const data = new Project()
     // }
 
-    return { addToDo, getToDos }
+    return { addToDo, getToDos, removeToDo }
 
 })();

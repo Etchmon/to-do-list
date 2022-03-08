@@ -91,6 +91,16 @@ html {
   grid-column: 1 / -1;
 }
 
+.remove-btn {
+  width: min-content;
+  align-self: end;
+  font-size: 1rem;
+  margin: 1rem;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+}
+
 .form-container {
   display: flex;
   justify-content: center;

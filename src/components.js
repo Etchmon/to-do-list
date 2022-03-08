@@ -1,6 +1,7 @@
 import HomeIcon from './home.png';
 import Logo from './checkbox.png';
 import ProjectIcon from './lightbulb-group.png';
+import { toDoManager } from './toDoManager';
 
 export const sideBar = () => {
     const element = document.createElement('section');
@@ -159,12 +160,17 @@ export const card = () => {
     const cardTitle = document.createElement('h1');
     const cardDescription = document.createElement('p');
     const cardDate = document.createElement('span');
+    const removeBtn = document.createElement('button');
 
     element.setAttribute('class', 'card');
     cardTitle.setAttribute('class', 'card-title');
     cardDescription.setAttribute('class', 'card-description');
     cardDate.setAttribute('class', 'card-date');
+    removeBtn.setAttribute('class', 'remove-btn');
 
+    removeBtn.innerHTML = 'x';
+
+    element.appendChild(removeBtn);
     element.appendChild(cardTitle);
     element.appendChild(cardDescription);
     element.appendChild(cardDate);

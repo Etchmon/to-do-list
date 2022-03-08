@@ -48,17 +48,16 @@ export const displayController = (() => {
         let i = 0;
 
         todos.forEach(toDo => {
-            // create a card
-            // set the innerHTML of card elements
-            // append it to main-view
             const element = card();
             element.querySelector('h1').innerHTML = toDo.title;
             element.querySelector('p').innerHTML = toDo.description;
             element.querySelector('span').innerHTML = toDo.dueDate;
             element.setAttribute('key', i);
+
+            element.onclick = toDoManager.removeToDo;
+
             view.appendChild(element);
             i++;
-
         })
     }
 
