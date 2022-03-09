@@ -51,10 +51,14 @@ export const toDoManager = (() => {
         const data = new ToDo(this.parentElement.title.value, this.parentElement.description.value, this.parentElement.dueDate.value);
         todos.push(data);
         displayController.closeForm();
-        displayController.renderAll();
 
         if (currentProject != 'Default') {
             currentProject.array.push(data);
+            console.log(currentProject.array)
+            console.log(todos)
+            displayController.renderProjectToDos();
+        } else {
+            displayController.renderAll();
         }
     }
 
@@ -77,11 +81,12 @@ export const toDoManager = (() => {
         console.log(projects);
         displayController.closeForm();
         displayController.setHeader(data.title);
+        displayController.renderProjectToDos();
         // Displayer controller function to change main-header to the project title
         // create a new sidebar link with the project title
         // render the array of todos from the current project
     }
 
-    return { addToDo, getToDos, removeToDo, createProject }
+    return { addToDo, getToDos, removeToDo, createProject, getProject }
 
 })();

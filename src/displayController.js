@@ -72,7 +72,7 @@ export const displayController = (() => {
 
             view.appendChild(element);
             i++;
-        })
+        });
     }
 
     const setHeader = (title) => {
@@ -81,5 +81,25 @@ export const displayController = (() => {
         element.innerHTML = title;
     }
 
-    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader }
+    const renderProjectToDos = () => {
+
+        _clearView();
+        let data = toDoManager.getProject();
+        const view = document.querySelector('.main-view');
+        let i = 0;
+
+        data.array.forEach(toDo => {
+            const element = card();
+            element.querySelector('h1').innerHTML = toDo.title;
+            element.querySelector('p').innerHTML = toDo.description;
+            element.querySelector('span').innerHTML = toDo.dueDate;
+            element.setAttribute('key', i);
+
+            element.onclick = toDoManager.removeToDo;
+
+            view.appendChild(element);
+        });
+    }
+
+    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader, renderProjectToDos }
 })();
