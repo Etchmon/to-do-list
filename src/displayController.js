@@ -1,4 +1,4 @@
-import { sideBar, main, form, card } from './components';
+import { sideBar, main, form, card, projectForm } from './components';
 import { toDoManager } from './toDoManager';
 import _ from 'lodash';
 
@@ -20,6 +20,7 @@ export const displayController = (() => {
         element.appendChild(sideBar());
         element.appendChild(main());
         element.appendChild(form());
+        element.appendChild(projectForm());
 
         document.body.appendChild(element);
     }
@@ -30,10 +31,20 @@ export const displayController = (() => {
         form.className = 'form-container';
     };
 
+    const showProjectForm = () => {
+        const form = document.querySelector('.project-form-container');
+
+        console.log(form);
+
+        form.className = 'project-form-container';
+    }
+
     const closeForm = () => {
         const form = document.querySelector('.form-container');
+        const projectForm = document.querySelector('.project-form-container');
 
         form.className = 'form-container hide-form';
+        projectForm.classList = 'project-form-container hide-form';
     }
 
     const _clearView = () => {
@@ -64,5 +75,5 @@ export const displayController = (() => {
         })
     }
 
-    return { createDom, showForm, closeForm, renderAll }
+    return { createDom, showForm, closeForm, renderAll, showProjectForm }
 })();

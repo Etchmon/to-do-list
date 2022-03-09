@@ -101,7 +101,8 @@ html {
   border-radius: 5px;
 }
 
-.form-container {
+.form-container,
+.project-form-container {
   display: flex;
   justify-content: center;
   align-items: center;

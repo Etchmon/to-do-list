@@ -2,7 +2,7 @@ import HomeIcon from './home.png';
 import Logo from './checkbox.png';
 import ProjectIcon from './lightbulb-group.png';
 import { toDoManager } from './toDoManager';
-import { add } from 'lodash';
+import { displayController } from './displayController';
 
 // -----To Dos--------
 // create add project button, add it to sidebar
@@ -59,6 +59,8 @@ export const sideBar = () => {
     projects.innerHTML = 'Projects';
     addProject.innerHTML = '+';
 
+    addProject.onclick = displayController.showProjectForm;
+
     logoBox.appendChild(logo);
     logoBox.appendChild(header);
 
@@ -89,6 +91,8 @@ export const main = () => {
     header.innerHTML = 'All Tasks';
     button.innerHTML = '+';
 
+    button.onclick = displayController.showForm;
+
     view.appendChild(button);
 
     element.appendChild(header);
@@ -102,6 +106,45 @@ export const projectForm = () => {
     const form = document.createElement('form');
     const legend = document.createElement('legend');
     const title = document.createElement('input');
+    const submitButton = document.createElement('button');
+    const closeButton = document.createElement('button');
+
+    element.setAttribute('class', 'project-form-container hide-form');
+
+    Object.assign(form, {
+        className: 'form',
+        action: '/dist/index.html',
+        method: 'POST'
+    });
+    Object.assign(title, {
+        className: 'project-title',
+        name: 'projectTitle',
+        maxlength: '30',
+        placeholder: 'Title:'
+    });
+    Object.assign(submitButton, {
+        type: 'submit',
+        id: 'submit-btn'
+    });
+    Object.assign(closeButton, {
+        type: 'button',
+        id: 'close-btn'
+    });
+
+    legend.innerHTML = 'New Project...';
+    submitButton.innerHTML = 'Create Project';
+    closeButton.innerHTML = 'Close';
+
+    form.appendChild(legend);
+    form.appendChild(title);
+    form.appendChild(submitButton);
+    form.appendChild(closeButton);
+
+    closeButton.onclick = displayController.closeForm;
+
+    element.appendChild(form);
+
+    return element;
 }
 
 export const form = () => {
@@ -150,15 +193,18 @@ export const form = () => {
     Object.assign(submitButton, {
         type: 'submit',
         id: 'submit-btn'
-    })
+    });
     Object.assign(closeButton, {
         type: 'button',
         id: 'close-btn'
-    })
+    });
 
-    legend.innerHTML = 'New Task';
+    legend.innerHTML = 'New Task...';
     submitButton.innerHTML = 'Add Task';
     closeButton.innerHTML = 'Close';
+
+    closeButton.onclick = displayController.closeForm;
+    submitButton.onclick = toDoManager.addToDo;
 
     form.appendChild(legend);
     form.appendChild(title);
