@@ -17,7 +17,7 @@ html {
 }
 
 .side-bar {
-  width: 20vw;
+  width: min-content;
   padding: 1rem;
   background-color: lightseagreen;
 
@@ -39,6 +39,8 @@ html {
 .side-bar-header {
   margin: auto 0;
   font-size: 2.5rem;
+  white-space: nowrap;
+  padding-right: 1rem;
 }
 
 .link-box {

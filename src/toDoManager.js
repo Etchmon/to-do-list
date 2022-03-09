@@ -50,13 +50,12 @@ export const toDoManager = (() => {
 
         const data = new ToDo(this.parentElement.title.value, this.parentElement.description.value, this.parentElement.dueDate.value);
         todos.push(data);
-        console.log(todos);
-        console.log(todos[0]);
         displayController.closeForm();
         displayController.renderAll();
-        // If main header is All Tasks, render all
-        // Else find the project with title same as the header
-        // renderProjectToDos
+
+        if (currentProject != 'Default') {
+            currentProject.array.push(data);
+        }
     }
 
     function removeToDo(e) {
@@ -73,6 +72,8 @@ export const toDoManager = (() => {
 
         const data = new Project(this.parentElement.projectTitle.value);
         projects.push(data);
+        changeProject(data);
+        console.log(currentProject);
         console.log(projects);
         displayController.closeForm();
         displayController.setHeader(data.title);
