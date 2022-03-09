@@ -69,7 +69,8 @@ export const toDoManager = (() => {
         // create a class Project that includes title and empty array
         e.preventDefault();
 
-        const data = this;
+        const data = new Project(this.parentElement.projectTitle.value);
+        console.log(data);
     }
 
     return { addToDo, getToDos, removeToDo, createProject }

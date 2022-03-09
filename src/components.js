@@ -141,6 +141,7 @@ export const projectForm = () => {
     form.appendChild(closeButton);
 
     closeButton.onclick = displayController.closeForm;
+    submitButton.onclick = toDoManager.createProject;
 
     element.appendChild(form);
 
