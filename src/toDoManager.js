@@ -1,7 +1,6 @@
 import { displayController } from "./displayController";
 // Export auto running toDoManager module
 // -----To Do-------
-// When creating a task in the all task page, add task to default project
 // Create add project button, creates and object with a title and an array and adds it to the projects array onclick
 // Add the title of projects to the the sidebar
 // Display all the todos from the project when sidebar link is clicked
@@ -53,7 +52,11 @@ export const toDoManager = (() => {
         todos.push(data);
         console.log(todos);
         console.log(todos[0]);
+        displayController.closeForm();
         displayController.renderAll();
+        // If main header is All Tasks, render all
+        // Else find the project with title same as the header
+        // renderProjectToDos
     }
 
     function removeToDo(e) {
@@ -66,11 +69,16 @@ export const toDoManager = (() => {
     }
 
     function createProject(e) {
-        // create a class Project that includes title and empty array
         e.preventDefault();
 
         const data = new Project(this.parentElement.projectTitle.value);
-        console.log(data);
+        projects.push(data);
+        console.log(projects);
+        displayController.closeForm();
+        displayController.setHeader(data.title);
+        // Displayer controller function to change main-header to the project title
+        // create a new sidebar link with the project title
+        // render the array of todos from the current project
     }
 
     return { addToDo, getToDos, removeToDo, createProject }

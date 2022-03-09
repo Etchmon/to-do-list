@@ -18,6 +18,7 @@ export const sideBar = () => {
     const home = document.createElement('a');
     const projects = document.createElement('a');
     const addProject = document.createElement('button');
+    const btnHeader = document.createElement('a');
     const logo = new Image();
     const homeIcon = new Image();
     const projectIcon = new Image();
@@ -47,6 +48,10 @@ export const sideBar = () => {
     Object.assign(projectIcon, {
         className: 'icon',
         alt: 'projects'
+    });
+    Object.assign(btnHeader, {
+        className: 'link',
+        href: '#'
     })
 
     logo.src = Logo;
@@ -58,6 +63,7 @@ export const sideBar = () => {
     home.innerHTML = 'Home';
     projects.innerHTML = 'Projects';
     addProject.innerHTML = '+';
+    btnHeader.innerHTML = 'New Project';
 
     addProject.onclick = displayController.showProjectForm;
 
@@ -69,6 +75,7 @@ export const sideBar = () => {
     linkBox.appendChild(projectIcon);
     linkBox.appendChild(projects);
     linkBox.appendChild(addProject);
+    linkBox.appendChild(btnHeader);
 
     element.appendChild(logoBox);
     element.appendChild(linkBox);
@@ -239,6 +246,15 @@ export const card = () => {
     element.appendChild(cardTitle);
     element.appendChild(cardDescription);
     element.appendChild(cardDate);
+
+    return element;
+}
+
+export const projectLink = () => {
+    const element = document.createElement('a');
+    const linkBox = document.querySelector('.link-box');
+
+    element.setAttribute('class', 'project-link');
 
     return element;
 }

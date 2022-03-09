@@ -75,5 +75,11 @@ export const displayController = (() => {
         })
     }
 
-    return { createDom, showForm, closeForm, renderAll, showProjectForm }
+    const setHeader = (title) => {
+        const element = document.querySelector('.main-header');
+
+        element.innerHTML = title;
+    }
+
+    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader }
 })();
