@@ -84,10 +84,9 @@ export const displayController = (() => {
                 element.querySelector('h1').innerHTML = toDo.title;
                 element.querySelector('p').innerHTML = toDo.description;
                 element.querySelector('span').innerHTML = toDo.dueDate;
+                element.querySelector('.priority-level').innerHTML = toDo.priority;
                 element.setAttribute('key', key);
                 element.setAttribute('pIndex', pIndex);
-
-                element.onclick = toDoManager.removeToDo;
 
                 view.appendChild(element);
                 key++;

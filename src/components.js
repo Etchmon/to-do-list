@@ -198,7 +198,7 @@ export const form = () => {
     });
     Object.assign(priority, {
         id: 'task-prioity',
-        name: 'prioity'
+        name: 'priority'
     });
     Object.assign(submitButton, {
         type: 'submit',
@@ -208,6 +208,9 @@ export const form = () => {
         type: 'button',
         id: 'close-btn'
     });
+
+    title.setAttribute('required', '');
+    priority.setAttribute('required', '');
 
     optionPlaceholder.setAttribute('disabled', '');
     optionPlaceholder.setAttribute('selected', '');
@@ -220,6 +223,7 @@ export const form = () => {
         const element = document.createElement('option');
 
         element.setAttribute('class', (option + '-priority'));
+        element.setAttribute('value', option);
         element.innerHTML = option;
 
         priority.appendChild(element);
@@ -250,20 +254,24 @@ export const card = () => {
     const cardTitle = document.createElement('h1');
     const cardDescription = document.createElement('p');
     const cardDate = document.createElement('span');
+    const prioity = document.createElement('span');
     const removeBtn = document.createElement('button');
 
     element.setAttribute('class', 'card');
     cardTitle.setAttribute('class', 'card-title');
     cardDescription.setAttribute('class', 'card-description');
     cardDate.setAttribute('class', 'card-date');
+    prioity.setAttribute('class', 'priority-level');
     removeBtn.setAttribute('class', 'remove-btn');
 
     removeBtn.innerHTML = 'x';
+    removeBtn.onclick = toDoManager.removeToDo;
 
     element.appendChild(removeBtn);
     element.appendChild(cardTitle);
     element.appendChild(cardDescription);
     element.appendChild(cardDate);
+    element.appendChild(prioity);
 
     return element;
 }
@@ -274,7 +282,7 @@ export const projectLink = () => {
     Object.assign(element, {
         className: 'project-link',
         href: '#'
-    })
+    });
 
     return element;
 }

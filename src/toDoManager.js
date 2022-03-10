@@ -53,7 +53,7 @@ export const toDoManager = (() => {
     function addToDo(e) {
         e.preventDefault();
 
-        const data = new ToDo(this.parentElement.title.value, this.parentElement.description.value, this.parentElement.dueDate.value);
+        const data = new ToDo(this.parentElement.title.value, this.parentElement.description.value, this.parentElement.dueDate.value, this.parentElement.priority.value);
         this.parentElement.reset();
         displayController.closeForm();
 
@@ -69,8 +69,8 @@ export const toDoManager = (() => {
     function removeToDo(e) {
         e.preventDefault();
 
-        let num = this.getAttribute('key');
-        let index = this.getAttribute('pIndex');
+        let num = this.parentElement.getAttribute('key');
+        let index = this.parentElement.getAttribute('pIndex');
 
 
         if (currentProject != 'Default') {

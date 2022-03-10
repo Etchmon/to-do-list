@@ -19,6 +19,7 @@ displayController.createDom();
 // Add a tracker of completed tasks in the display div
 // Create a sort function to sort the todos based on urgency level
 // Create a sort function to sort by date/time urgency
+// function to validate form, make sure all inputs are valid
 
 
 
