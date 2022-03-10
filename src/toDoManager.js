@@ -1,10 +1,6 @@
 import { displayController } from "./displayController";
 // Export auto running toDoManager module
 // -----To Do-------
-// Create add project button, creates and object with a title and an array and adds it to the projects array onclick
-// Add the title of projects to the the sidebar
-// Display all the todos from the project when sidebar link is clicked
-// Always add todo to default project as well as current project
 // Edit Todos and project, recreate form filled with data from item being edited
 
 export const toDoManager = (() => {
@@ -97,9 +93,6 @@ export const toDoManager = (() => {
         displayController.closeForm();
         displayController.updateLinks();
         displayController.renderProjectToDos();
-        // Displayer controller function to change main-header to the project title
-        // create a new sidebar link with the project title
-        // render the array of todos from the current project
     }
 
     return { addToDo, getToDos, removeToDo, createProject, getProject, getProjectsArray, changeProject }

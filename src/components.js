@@ -4,11 +4,6 @@ import ProjectIcon from './lightbulb-group.png';
 import { toDoManager } from './toDoManager';
 import { displayController } from './displayController';
 
-// -----To Dos--------
-// create add project button, add it to sidebar
-// add div to hold project titles, indent it from projects link
-// create form for project creation
-
 
 export const sideBar = () => {
     const element = document.createElement('section');
@@ -149,8 +144,8 @@ export const projectForm = () => {
 
     form.appendChild(legend);
     form.appendChild(title);
-    form.appendChild(submitButton);
     form.appendChild(closeButton);
+    form.appendChild(submitButton);
 
     closeButton.onclick = displayController.closeForm;
     submitButton.onclick = toDoManager.createProject;
@@ -195,7 +190,7 @@ export const form = () => {
         placeholder: 'Description:'
     });
     Object.assign(dueDate, {
-        type: 'date',
+        type: 'datetime-local',
         id: 'task-due-date',
         name: 'dueDate'
     });
@@ -224,8 +219,8 @@ export const form = () => {
     form.appendChild(description);
     form.appendChild(dueDate);
     form.appendChild(priority);
-    form.appendChild(submitButton);
     form.appendChild(closeButton);
+    form.appendChild(submitButton);
 
     element.appendChild(form);
 

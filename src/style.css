@@ -60,6 +60,21 @@ html {
   white-space: nowrap;
 }
 
+.project-links {
+  grid-column: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.project-link {
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  white-space: nowrap;
+}
+
 .main {
   display: grid;
   grid-template-rows: min-content 1fr;
@@ -127,10 +142,25 @@ html {
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  padding: 5rem;
-  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  margin-bottom: 1vw;
+  box-shadow: 0 8px 10px -6px black;
+  padding: 3rem;
+  background-color: lightseagreen;
+}
+
+.form legend {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.form legend,
+#task-title,
+#task-description,
+.project-title {
+  grid-column: 1 / -1;
 }
 
 .form input,

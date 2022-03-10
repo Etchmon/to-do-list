@@ -2,13 +2,6 @@ import { sideBar, main, form, card, projectForm, projectLink } from './component
 import { toDoManager } from './toDoManager';
 import _ from 'lodash';
 
-
-// Export a auto running displayer controlle module
-// ----To Do-------
-// create renderProjects function that renders all the project titles to main view
-// create renderProjectToDos function to render a specific projects todos to main view
-// create updateLinks function, run it when new project is added to update sidebar links to include project titles
-
 export const displayController = (() => {
 
     const createDom = () => {
@@ -39,11 +32,8 @@ export const displayController = (() => {
                 toDoManager.changeProject(projects[i]);
                 renderProjectToDos();
             };
-
             div.appendChild(element);
-
         };
-
     };
 
     const showForm = () => {
@@ -87,6 +77,7 @@ export const displayController = (() => {
 
         projects.forEach(Project => {
             let pIndex = projects.indexOf(Project);
+
             Project.array.forEach(toDo => {
                 let key = Project.array.indexOf(toDo);
                 const element = card();
