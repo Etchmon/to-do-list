@@ -57,22 +57,44 @@ export const displayController = (() => {
     const renderAll = () => {
 
         _clearView();
+        setHeader('All Tasks');
+        toDoManager.changeProject('Default');
         const todos = toDoManager.getToDos();
+        const projects = toDoManager.getProjectsArray();
         const view = document.querySelector('.main-view');
-        let i = 0;
 
-        todos.forEach(toDo => {
-            const element = card();
-            element.querySelector('h1').innerHTML = toDo.title;
-            element.querySelector('p').innerHTML = toDo.description;
-            element.querySelector('span').innerHTML = toDo.dueDate;
-            element.setAttribute('key', i);
+        projects.forEach(Project => {
+            console.log(projects.indexOf(Project));
+            let pIndex = projects.indexOf(Project);
+            Project.array.forEach(toDo => {
+                console.log(Project.array.indexOf(toDo));
+                let key = Project.array.indexOf(toDo);
+                const element = card();
+                element.querySelector('h1').innerHTML = toDo.title;
+                element.querySelector('p').innerHTML = toDo.description;
+                element.querySelector('span').innerHTML = toDo.dueDate;
+                element.setAttribute('key', key);
+                element.setAttribute('pIndex', pIndex);
 
-            element.onclick = toDoManager.removeToDo;
+                element.onclick = toDoManager.removeToDo;
 
-            view.appendChild(element);
-            i++;
+                view.appendChild(element);
+                key++;
+            });
         });
+
+        // todos.forEach(toDo => {
+        //     const element = card();
+        //     element.querySelector('h1').innerHTML = toDo.title;
+        //     element.querySelector('p').innerHTML = toDo.description;
+        //     element.querySelector('span').innerHTML = toDo.dueDate;
+        //     element.setAttribute('key', key);
+
+        //     element.onclick = toDoManager.removeToDo;
+
+        //     view.appendChild(element);
+        //     key++;
+        // });
     }
 
     const setHeader = (title) => {
@@ -85,6 +107,7 @@ export const displayController = (() => {
 
         _clearView();
         let data = toDoManager.getProject();
+        setHeader(data.title);
         const view = document.querySelector('.main-view');
         let i = 0;
 

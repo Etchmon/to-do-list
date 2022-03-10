@@ -66,6 +66,8 @@ export const sideBar = () => {
     btnHeader.innerHTML = 'New Project';
 
     addProject.onclick = displayController.showProjectForm;
+    home.onclick = displayController.renderAll;
+    homeIcon.onclick = displayController.renderAll;
 
     logoBox.appendChild(logo);
     logoBox.appendChild(header);

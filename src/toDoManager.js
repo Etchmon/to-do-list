@@ -10,8 +10,13 @@ import { displayController } from "./displayController";
 export const toDoManager = (() => {
 
     let currentProject = 'Default';
-    let projects = []; // an array of objects containing an array of objects
-    let todos = []; // array of all todos
+    let projects = [
+        {
+            title: "Default",
+            array: []
+        }
+    ]; // an array of objects containing an array of objects
+    let todos = projects[0].array; // array of all todos
 
     const changeProject = (newProject) => {
         currentProject = newProject;
@@ -19,6 +24,10 @@ export const toDoManager = (() => {
 
     const getProject = () => {
         return currentProject;
+    }
+
+    const getProjectsArray = () => {
+        return projects;
     }
 
     class Project {
@@ -49,15 +58,13 @@ export const toDoManager = (() => {
         e.preventDefault();
 
         const data = new ToDo(this.parentElement.title.value, this.parentElement.description.value, this.parentElement.dueDate.value);
-        todos.push(data);
         displayController.closeForm();
 
         if (currentProject != 'Default') {
             currentProject.array.push(data);
-            console.log(currentProject.array)
-            console.log(todos)
             displayController.renderProjectToDos();
         } else {
+            todos.push(data);
             displayController.renderAll();
         }
     }
@@ -66,9 +73,17 @@ export const toDoManager = (() => {
         e.preventDefault();
 
         let num = this.getAttribute('key');
-        todos.splice(num, 1);
-        console.log(todos);
-        displayController.renderAll();
+        let index = this.getAttribute('pIndex');
+
+
+        if (currentProject != 'Default') {
+            const data = getProject();
+            data.array.splice(num, 1);
+            displayController.renderProjectToDos();
+        } else {
+            projects[index].array.splice(num, 1);
+            displayController.renderAll();
+        }
     }
 
     function createProject(e) {
@@ -80,13 +95,12 @@ export const toDoManager = (() => {
         console.log(currentProject);
         console.log(projects);
         displayController.closeForm();
-        displayController.setHeader(data.title);
         displayController.renderProjectToDos();
         // Displayer controller function to change main-header to the project title
         // create a new sidebar link with the project title
         // render the array of todos from the current project
     }
 
-    return { addToDo, getToDos, removeToDo, createProject, getProject }
+    return { addToDo, getToDos, removeToDo, createProject, getProject, getProjectsArray, changeProject }
 
 })();
