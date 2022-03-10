@@ -95,6 +95,7 @@ export const toDoManager = (() => {
         console.log(currentProject);
         console.log(projects);
         displayController.closeForm();
+        displayController.updateLinks();
         displayController.renderProjectToDos();
         // Displayer controller function to change main-header to the project title
         // create a new sidebar link with the project title

@@ -19,6 +19,7 @@ export const sideBar = () => {
     const projects = document.createElement('a');
     const addProject = document.createElement('button');
     const btnHeader = document.createElement('a');
+    const projectLinks = document.createElement('div');
     const logo = new Image();
     const homeIcon = new Image();
     const projectIcon = new Image();
@@ -28,6 +29,7 @@ export const sideBar = () => {
     header.setAttribute('class', 'side-bar-header');
     linkBox.setAttribute('class', 'link-box');
     addProject.setAttribute('class', 'add-project-btn');
+    projectLinks.setAttribute('class', 'project-links');
 
     Object.assign(home, {
         className: 'link',
@@ -52,7 +54,7 @@ export const sideBar = () => {
     Object.assign(btnHeader, {
         className: 'link',
         href: '#'
-    })
+    });
 
     logo.src = Logo;
     homeIcon.src = HomeIcon;
@@ -78,6 +80,7 @@ export const sideBar = () => {
     linkBox.appendChild(projects);
     linkBox.appendChild(addProject);
     linkBox.appendChild(btnHeader);
+    linkBox.appendChild(projectLinks);
 
     element.appendChild(logoBox);
     element.appendChild(linkBox);
@@ -254,9 +257,11 @@ export const card = () => {
 
 export const projectLink = () => {
     const element = document.createElement('a');
-    const linkBox = document.querySelector('.link-box');
 
-    element.setAttribute('class', 'project-link');
+    Object.assign(element, {
+        className: 'project-link',
+        href: '#'
+    })
 
     return element;
 }

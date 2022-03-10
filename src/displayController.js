@@ -1,4 +1,4 @@
-import { sideBar, main, form, card, projectForm } from './components';
+import { sideBar, main, form, card, projectForm, projectLink } from './components';
 import { toDoManager } from './toDoManager';
 import _ from 'lodash';
 
@@ -23,7 +23,28 @@ export const displayController = (() => {
         element.appendChild(projectForm());
 
         document.body.appendChild(element);
-    }
+    };
+
+    const updateLinks = () => {
+        const projects = toDoManager.getProjectsArray();
+        const div = document.querySelector('.project-links');
+        div.innerHTML = '';
+
+        for (let i = 1; i < projects.length; i++) {
+            const element = projectLink();
+
+            element.innerHTML = projects[i].title;
+
+            element.onclick = () => {
+                toDoManager.changeProject(projects[i]);
+                renderProjectToDos();
+            };
+
+            div.appendChild(element);
+
+        };
+
+    };
 
     const showForm = () => {
         const form = document.querySelector('.form-container');
@@ -37,7 +58,7 @@ export const displayController = (() => {
         console.log(form);
 
         form.className = 'project-form-container';
-    }
+    };
 
     const closeForm = () => {
         const form = document.querySelector('.form-container');
@@ -45,29 +66,28 @@ export const displayController = (() => {
 
         form.className = 'form-container hide-form';
         projectForm.classList = 'project-form-container hide-form';
-    }
+    };
 
     const _clearView = () => {
         const view = document.querySelector('.main-view');
         const button = view.firstChild;
         view.innerHTML = '';
         view.appendChild(button);
-    }
+    };
 
     const renderAll = () => {
 
         _clearView();
         setHeader('All Tasks');
         toDoManager.changeProject('Default');
+
         const todos = toDoManager.getToDos();
         const projects = toDoManager.getProjectsArray();
         const view = document.querySelector('.main-view');
 
         projects.forEach(Project => {
-            console.log(projects.indexOf(Project));
             let pIndex = projects.indexOf(Project);
             Project.array.forEach(toDo => {
-                console.log(Project.array.indexOf(toDo));
                 let key = Project.array.indexOf(toDo);
                 const element = card();
                 element.querySelector('h1').innerHTML = toDo.title;
@@ -82,26 +102,13 @@ export const displayController = (() => {
                 key++;
             });
         });
-
-        // todos.forEach(toDo => {
-        //     const element = card();
-        //     element.querySelector('h1').innerHTML = toDo.title;
-        //     element.querySelector('p').innerHTML = toDo.description;
-        //     element.querySelector('span').innerHTML = toDo.dueDate;
-        //     element.setAttribute('key', key);
-
-        //     element.onclick = toDoManager.removeToDo;
-
-        //     view.appendChild(element);
-        //     key++;
-        // });
-    }
+    };
 
     const setHeader = (title) => {
         const element = document.querySelector('.main-header');
 
         element.innerHTML = title;
-    }
+    };
 
     const renderProjectToDos = () => {
 
@@ -122,7 +129,7 @@ export const displayController = (() => {
 
             view.appendChild(element);
         });
-    }
+    };
 
-    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader, renderProjectToDos }
+    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader, renderProjectToDos, updateLinks }
 })();
