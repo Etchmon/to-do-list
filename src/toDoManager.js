@@ -54,6 +54,7 @@ export const toDoManager = (() => {
         e.preventDefault();
 
         const data = new ToDo(this.parentElement.title.value, this.parentElement.description.value, this.parentElement.dueDate.value);
+        this.parentElement.reset();
         displayController.closeForm();
 
         if (currentProject != 'Default') {
@@ -90,6 +91,7 @@ export const toDoManager = (() => {
         changeProject(data);
         console.log(currentProject);
         console.log(projects);
+        this.parentElement.reset();
         displayController.closeForm();
         displayController.updateLinks();
         displayController.renderProjectToDos();
