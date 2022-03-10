@@ -163,6 +163,8 @@ export const form = () => {
     const description = document.createElement('textarea');
     const dueDate = document.createElement('input');
     const priority = document.createElement('select');
+    const options = ['low', 'medium', 'high'];
+    const optionPlaceholder = document.createElement('option');
     const submitButton = document.createElement('button');
     const closeButton = document.createElement('button');
 
@@ -206,6 +208,22 @@ export const form = () => {
         type: 'button',
         id: 'close-btn'
     });
+
+    optionPlaceholder.setAttribute('disabled', '');
+    optionPlaceholder.setAttribute('selected', '');
+    optionPlaceholder.setAttribute('hidden', '');
+    optionPlaceholder.innerHTML = 'Priority Level...';
+
+    priority.appendChild(optionPlaceholder);
+
+    options.forEach(option => {
+        const element = document.createElement('option');
+
+        element.setAttribute('class', (option + '-priority'));
+        element.innerHTML = option;
+
+        priority.appendChild(element);
+    })
 
     legend.innerHTML = 'New Task...';
     submitButton.innerHTML = 'Add Task';
