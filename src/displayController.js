@@ -55,7 +55,10 @@ export const displayController = (() => {
         const projectForm = document.querySelector('.project-form-container');
 
         form.className = 'form-container hide-form';
-        projectForm.classList = 'project-form-container hide-form';
+        projectForm.className = 'project-form-container hide-form';
+
+        form.firstChild.className = 'task-title';
+        projectForm.firstChild.title.className = 'project-title';
     };
 
     const _clearView = () => {
