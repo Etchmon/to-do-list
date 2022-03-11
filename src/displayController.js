@@ -94,6 +94,21 @@ export const displayController = (() => {
         });
     };
 
+    const renderAllProjects = () => {
+        _clearView();
+        setHeader('All Projects');
+
+        const projects = toDoManager.getProjectsArray();
+        const view = document.querySelector('.main-view');
+
+        projects.forEach(Project => {
+            // create projectCard element
+            // Attach the project title to the card
+            // Attach the number of todos in project array to the card
+            // Attach the location of the Project in the projects array for onclick event
+        })
+    }
+
     const setHeader = (title) => {
         const element = document.querySelector('.main-header');
 
@@ -114,8 +129,6 @@ export const displayController = (() => {
             element.querySelector('p').innerHTML = toDo.description;
             element.querySelector('span').innerHTML = toDo.dueDate;
             element.setAttribute('key', i);
-
-            element.onclick = toDoManager.removeToDo;
 
             view.appendChild(element);
         });

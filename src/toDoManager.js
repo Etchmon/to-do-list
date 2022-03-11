@@ -72,7 +72,6 @@ export const toDoManager = (() => {
         let num = this.parentElement.getAttribute('key');
         let index = this.parentElement.getAttribute('pIndex');
 
-
         if (currentProject != 'Default') {
             const data = getProject();
             data.array.splice(num, 1);
