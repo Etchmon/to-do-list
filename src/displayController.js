@@ -1,4 +1,4 @@
-import { sideBar, main, form, card, projectForm, projectLink } from './components';
+import { sideBar, main, form, card, projectForm, projectLink, projectCard } from './components';
 import { toDoManager } from './toDoManager';
 import _ from 'lodash';
 
@@ -101,12 +101,15 @@ export const displayController = (() => {
         const projects = toDoManager.getProjectsArray();
         const view = document.querySelector('.main-view');
 
-        projects.forEach(Project => {
-            // create projectCard element
-            // Attach the project title to the card
-            // Attach the number of todos in project array to the card
-            // Attach the location of the Project in the projects array for onclick event
-        })
+        projects.slice(1).forEach(Project => {
+            let key = projects.indexOf(Project);
+            const element = projectCard();
+            element.querySelector('h1').innerHTML = Project.title;
+            element.querySelector('span').innerHTML = Project.array.length;
+            element.setAttribute('key', key);
+
+            view.appendChild(element);
+        });
     }
 
     const setHeader = (title) => {
@@ -134,5 +137,5 @@ export const displayController = (() => {
         });
     };
 
-    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader, renderProjectToDos, updateLinks }
+    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader, renderProjectToDos, updateLinks, renderAllProjects }
 })();

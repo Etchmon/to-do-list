@@ -65,6 +65,7 @@ export const sideBar = () => {
     addProject.onclick = displayController.showProjectForm;
     home.onclick = displayController.renderAll;
     homeIcon.onclick = displayController.renderAll;
+    projects.onclick = displayController.renderAllProjects;
 
     logoBox.appendChild(logo);
     logoBox.appendChild(header);
@@ -82,7 +83,7 @@ export const sideBar = () => {
 
     return element;
 
-}
+};
 
 export const main = () => {
     const element = document.createElement('section');
@@ -106,7 +107,7 @@ export const main = () => {
     element.appendChild(view);
 
     return element;
-}
+};
 
 export const projectForm = () => {
     const element = document.createElement('div');
@@ -153,7 +154,7 @@ export const projectForm = () => {
     element.appendChild(form);
 
     return element;
-}
+};
 
 export const form = () => {
     const element = document.createElement('div');
@@ -247,7 +248,7 @@ export const form = () => {
     element.appendChild(form);
 
     return element;
-}
+};
 
 export const card = () => {
     const element = document.createElement('div');
@@ -274,6 +275,24 @@ export const card = () => {
     element.appendChild(prioity);
 
     return element;
+};
+
+export const projectCard = () => {
+    const element = document.createElement('div');
+    const title = document.createElement('h1');
+    const number = document.createElement('span');
+    const removeBtn = document.createElement('button');
+
+    element.setAttribute('class', 'project-card');
+    removeBtn.setAttribute('class', 'remove-btn');
+
+    removeBtn.innerHTML = 'x';
+
+    element.appendChild(removeBtn);
+    element.appendChild(title);
+    element.appendChild(number);
+
+    return element;
 }
 
 export const projectLink = () => {
@@ -285,4 +304,4 @@ export const projectLink = () => {
     });
 
     return element;
-}
+};
