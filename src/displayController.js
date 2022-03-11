@@ -57,7 +57,7 @@ export const displayController = (() => {
         form.className = 'form-container hide-form';
         projectForm.className = 'project-form-container hide-form';
 
-        form.firstChild.className = 'task-title';
+        form.firstChild.title.className = 'task-title';
         projectForm.firstChild.title.className = 'project-title';
     };
 
@@ -87,9 +87,14 @@ export const displayController = (() => {
                 element.querySelector('h1').innerHTML = toDo.title;
                 element.querySelector('p').innerHTML = toDo.description;
                 element.querySelector('span').innerHTML = toDo.dueDate;
-                element.querySelector('.priority-level').innerHTML = toDo.priority;
                 element.setAttribute('key', key);
                 element.setAttribute('pIndex', pIndex);
+
+                if (toDo.priority === 'Priority Level...') {
+                    element.querySelector('.priority-level').innerHTML = '';
+                } else {
+                    element.querySelector('.priority-level').innerHTML = toDo.priority;
+                };
 
                 view.appendChild(element);
                 key++;
@@ -137,6 +142,12 @@ export const displayController = (() => {
             element.querySelector('p').innerHTML = toDo.description;
             element.querySelector('span').innerHTML = toDo.dueDate;
             element.setAttribute('key', i);
+
+            if (toDo.priority === 'Priority Level...') {
+                element.querySelector('.priority-level').innerHTML = '';
+            } else {
+                element.querySelector('.priority-level').innerHTML = toDo.priority;
+            };
 
             view.appendChild(element);
         });

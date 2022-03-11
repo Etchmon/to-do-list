@@ -93,6 +93,7 @@ html {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(auto-fit, minmax(134px, min-content));
+  grid-row-gap: 1rem;
   padding: 1rem;
   background-color: rgb(207, 245, 242);
   overflow-x: hidden;
@@ -115,7 +116,6 @@ html {
 
 .remove-btn {
   width: min-content;
-  align-self: end;
   font-size: 1rem;
   margin: 1rem;
   background-color: red;
@@ -182,8 +182,14 @@ textarea {
   border: 1px solid lightseagreen;
   border-radius: 5px;
   display: flex;
-  flex-direction: column;
-  overflow-wrap: break-word;
+  justify-content: space-between;
+  align-items: center;
   hyphens: manual;
   cursor: pointer;
+}
+
+.card p {
+  max-width: 20%;
+  max-height: 100%;
+  text-overflow: ellipsis;
 }

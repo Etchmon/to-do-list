@@ -268,11 +268,11 @@ export const card = () => {
     removeBtn.innerHTML = 'x';
     removeBtn.onclick = toDoManager.removeToDo;
 
-    element.appendChild(removeBtn);
     element.appendChild(cardTitle);
     element.appendChild(cardDescription);
     element.appendChild(cardDate);
     element.appendChild(prioity);
+    element.appendChild(removeBtn);
 
     return element;
 };
