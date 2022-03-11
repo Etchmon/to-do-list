@@ -294,7 +294,7 @@ export const projectCard = () => {
     element.appendChild(number);
 
     return element;
-}
+};
 
 export const projectLink = () => {
     const element = document.createElement('a');

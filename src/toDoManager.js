@@ -103,6 +103,7 @@ export const toDoManager = (() => {
         const data = getProject();
         data.splice(num, 1);
         displayController.renderAllProjects();
+        displayController.updateLinks();
     };
 
     return { addToDo, getToDos, removeToDo, createProject, getProject, getProjectsArray, changeProject, removeProject }
