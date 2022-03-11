@@ -126,7 +126,7 @@ export const projectForm = () => {
     });
     Object.assign(title, {
         className: 'project-title',
-        name: 'projectTitle',
+        name: 'title',
         maxlength: '30',
         placeholder: 'Title:'
     });

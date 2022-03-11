@@ -53,6 +53,10 @@ export const toDoManager = (() => {
     function addToDo(e) {
         e.preventDefault();
 
+        if (displayController.validateForm(this.parentElement) === false) {
+            return;
+        }
+
         const data = new ToDo(this.parentElement.title.value, this.parentElement.description.value, this.parentElement.dueDate.value, this.parentElement.priority.value);
         this.parentElement.reset();
         displayController.closeForm();
@@ -85,7 +89,11 @@ export const toDoManager = (() => {
     function createProject(e) {
         e.preventDefault();
 
-        const data = new Project(this.parentElement.projectTitle.value);
+        if (displayController.validateForm(this.parentElement) === false) {
+            return;
+        }
+
+        const data = new Project(this.parentElement.title.value);
         projects.push(data);
         changeProject(data);
         console.log(currentProject);

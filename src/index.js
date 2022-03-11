@@ -10,8 +10,8 @@ displayController.createDom();
 // Style forms
 // Style the add project button, possibly change placement
 // Add Edit toDo functions, Edit projectTitle functions
-// Style cards to horizontal view or make smaller
 // Create A div that displays the number of tasks in the project
+// Create a div to hold all the todos that scrolls seperately from the add button
 // Add ability to set urgency level in a task: Green, Yellow, Read
 // Add ability to mark a task complete, which turns its urgency level blue
 // Add a tracker of completed tasks in the display div

@@ -172,6 +172,11 @@ textarea {
   border: none;
 }
 
+.error {
+  border: 3px solid !important;
+  border-color: crimson !important;
+}
+
 .card {
   padding: 2rem;
   border: 1px solid lightseagreen;

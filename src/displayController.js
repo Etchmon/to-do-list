@@ -139,5 +139,15 @@ export const displayController = (() => {
         });
     };
 
-    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader, renderProjectToDos, updateLinks, renderAllProjects }
+    const validateForm = (form) => {
+        if (form.title.value === '') {
+            form.title.classList.add('error');
+            return false;
+        } else {
+            form.title.className = 'project-title';
+            return true;
+        };
+    };
+
+    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader, renderProjectToDos, updateLinks, renderAllProjects, validateForm }
 })();
