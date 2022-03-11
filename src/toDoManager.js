@@ -96,6 +96,15 @@ export const toDoManager = (() => {
         displayController.renderProjectToDos();
     };
 
-    return { addToDo, getToDos, removeToDo, createProject, getProject, getProjectsArray, changeProject }
+    function removeProject(e) {
+        e.preventDefault();
+
+        let num = this.parentElement.getAttribute('key');
+        const data = getProject();
+        data.splice(num, 1);
+        displayController.renderAllProjects();
+    };
+
+    return { addToDo, getToDos, removeToDo, createProject, getProject, getProjectsArray, changeProject, removeProject }
 
 })();

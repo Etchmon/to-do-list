@@ -101,6 +101,8 @@ export const displayController = (() => {
         const projects = toDoManager.getProjectsArray();
         const view = document.querySelector('.main-view');
 
+        toDoManager.changeProject(projects);
+
         projects.slice(1).forEach(Project => {
             let key = projects.indexOf(Project);
             const element = projectCard();
@@ -110,7 +112,7 @@ export const displayController = (() => {
 
             view.appendChild(element);
         });
-    }
+    };
 
     const setHeader = (title) => {
         const element = document.querySelector('.main-header');

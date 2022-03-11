@@ -287,6 +287,7 @@ export const projectCard = () => {
     removeBtn.setAttribute('class', 'remove-btn');
 
     removeBtn.innerHTML = 'x';
+    removeBtn.onclick = toDoManager.removeProject;
 
     element.appendChild(removeBtn);
     element.appendChild(title);
