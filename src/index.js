@@ -9,7 +9,6 @@ displayController.createDom();
 // Things to do
 // Style forms
 // Style the add project button, possibly change placement
-// Create renderProjects function to show all projects
 // Add Edit toDo functions, Edit projectTitle functions
 // Add remove project function
 // Style cards to horizontal view or make smaller

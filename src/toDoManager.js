@@ -16,22 +16,22 @@ export const toDoManager = (() => {
 
     const changeProject = (newProject) => {
         currentProject = newProject;
-    }
+    };
 
     const getProject = () => {
         return currentProject;
-    }
+    };
 
     const getProjectsArray = () => {
         return projects;
-    }
+    };
 
     class Project {
         constructor(title) {
             this.title = title,
                 this.array = []
-        }
-    }
+        };
+    };
 
     class ToDo {
         constructor(title, description, dueDate, priority) {
@@ -39,16 +39,16 @@ export const toDoManager = (() => {
             this.description = description;
             this.dueDate = dueDate;
             this.priority = priority;
-        }
+        };
 
         info() {
             console.log(this.title, this.description, this.dueDate, this.priority);
-        }
-    }
+        };
+    };
 
     const getToDos = () => {
         return todos;
-    }
+    };
 
     function addToDo(e) {
         e.preventDefault();
@@ -63,8 +63,8 @@ export const toDoManager = (() => {
         } else {
             todos.push(data);
             displayController.renderAll();
-        }
-    }
+        };
+    };
 
     function removeToDo(e) {
         e.preventDefault();
@@ -79,8 +79,8 @@ export const toDoManager = (() => {
         } else {
             projects[index].array.splice(num, 1);
             displayController.renderAll();
-        }
-    }
+        };
+    };
 
     function createProject(e) {
         e.preventDefault();
@@ -94,7 +94,7 @@ export const toDoManager = (() => {
         displayController.closeForm();
         displayController.updateLinks();
         displayController.renderProjectToDos();
-    }
+    };
 
     return { addToDo, getToDos, removeToDo, createProject, getProject, getProjectsArray, changeProject }
 
