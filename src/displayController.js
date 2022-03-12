@@ -90,10 +90,22 @@ export const displayController = (() => {
                 element.setAttribute('key', key);
                 element.setAttribute('pIndex', pIndex);
 
-                if (toDo.priority === 'Priority Level...') {
-                    element.querySelector('.priority-level').innerHTML = '';
-                } else {
-                    element.querySelector('.priority-level').innerHTML = toDo.priority;
+                switch (toDo.priority) {
+                    case 'Priority Level...':
+                        element.querySelector('.priority-level').innerHTML = '';
+                        break;
+                    case 'low':
+                        element.querySelector('.priority-level').innerHTML = toDo.priority;
+                        element.querySelector('.priority-level').classList.add('low-priority');
+                        break;
+                    case 'medium':
+                        element.querySelector('.priority-level').innerHTML = toDo.priority;
+                        element.querySelector('.priority-level').classList.add('medium-priority');
+                        break;
+                    case 'high':
+                        element.querySelector('.priority-level').innerHTML = toDo.priority;
+                        element.querySelector('.priority-level').classList.add('high-priority');
+                        break;
                 };
 
                 view.appendChild(element);
@@ -143,10 +155,22 @@ export const displayController = (() => {
             element.querySelector('span').innerHTML = toDo.dueDate;
             element.setAttribute('key', i);
 
-            if (toDo.priority === 'Priority Level...') {
-                element.querySelector('.priority-level').innerHTML = '';
-            } else {
-                element.querySelector('.priority-level').innerHTML = toDo.priority;
+            switch (toDo.priority) {
+                case 'Priority Level...':
+                    element.querySelector('.priority-level').innerHTML = '';
+                    break;
+                case 'low':
+                    element.querySelector('.priority-level').innerHTML = toDo.priority;
+                    element.querySelector('.priority-level').classList.add('low-priority');
+                    break;
+                case 'medium':
+                    element.querySelector('.priority-level').innerHTML = toDo.priority;
+                    element.querySelector('.priority-level').classList.add('medium-priority');
+                    break;
+                case 'high':
+                    element.querySelector('.priority-level').innerHTML = toDo.priority;
+                    element.querySelector('.priority-level').classList.add('high-priority');
+                    break;
             };
 
             view.appendChild(element);

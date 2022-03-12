@@ -92,7 +92,7 @@ html {
 .main-view {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(auto-fit, minmax(134px, min-content));
+  grid-template-rows: repeat(auto-fit, minmax(5.375rem, min-content));
   grid-row-gap: 1rem;
   padding: 1rem;
   background-color: rgb(207, 245, 242);
@@ -177,9 +177,27 @@ textarea {
   border-color: crimson !important;
 }
 
+.high-priority {
+  color: crimson;
+}
+
+.medium-priority {
+  color: yellow;
+}
+
+.low-priority {
+  color: green;
+}
+
+.completed {
+  color: blue;
+}
+
 .card {
-  padding: 2rem;
+  padding: 1rem;
+  margin: 0 10vw;
   border: 1px solid lightseagreen;
+  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   display: flex;
   justify-content: space-between;

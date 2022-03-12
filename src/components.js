@@ -223,7 +223,7 @@ export const form = () => {
     options.forEach(option => {
         const element = document.createElement('option');
 
-        element.setAttribute('class', (option + '-priority'));
+        element.setAttribute('class', option);
         element.setAttribute('value', option);
         element.innerHTML = option;
 
