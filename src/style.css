@@ -28,6 +28,13 @@ html {
   grid-row-gap: 10vh;
 }
 
+.add-project-btn {
+  border: none;
+  background-color: lightseagreen;
+  font-size: 1.5rem;
+  color: black;
+}
+
 .logo-box {
   display: flex;
 }

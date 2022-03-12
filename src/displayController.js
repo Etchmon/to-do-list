@@ -26,7 +26,7 @@ export const displayController = (() => {
         for (let i = 1; i < projects.length; i++) {
             const element = projectLink();
 
-            element.innerHTML = projects[i].title;
+            element.innerHTML = ('- ' + projects[i].title);
 
             element.onclick = () => {
                 toDoManager.changeProject(projects[i]);
