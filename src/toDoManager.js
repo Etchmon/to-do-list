@@ -1,4 +1,4 @@
-import { times } from "lodash";
+import { get, times } from "lodash";
 import { displayController } from "./displayController";
 // Export auto running toDoManager module
 // -----To Do-------
@@ -79,6 +79,13 @@ export const toDoManager = (() => {
             const data = projects[key];
 
             console.log(data.description);
+
+            displayController.editForm(data);
+        } else if (currentProject != 'Default') {
+            const key = this.getAttribute('key');
+            const project = getProject();
+
+            const data = project.array[key];
 
             displayController.editForm(data);
         } else {
