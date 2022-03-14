@@ -198,7 +198,7 @@ export const form = () => {
         name: 'dueDate'
     });
     Object.assign(priority, {
-        id: 'task-prioity',
+        id: 'task-priority',
         name: 'priority'
     });
     Object.assign(submitButton, {
@@ -267,6 +267,8 @@ export const card = () => {
 
     removeBtn.innerHTML = 'x';
     removeBtn.onclick = toDoManager.removeToDo;
+
+    element.onclick = toDoManager.editTodo;
 
     element.appendChild(cardTitle);
     element.appendChild(cardDescription);

@@ -12,7 +12,7 @@ export const toDoManager = (() => {
             array: []
         }
     ]; // an array of objects containing an array of objects
-    let todos = projects[0].array; // array of all todos
+    let todos = projects[0].array; // array of default todos
 
     const changeProject = (newProject) => {
         currentProject = newProject;
@@ -70,6 +70,40 @@ export const toDoManager = (() => {
         };
     };
 
+    function editTodo(e) {
+        e.preventDefault();
+
+        let num = this.getAttribute('key');
+        let index = this.getAttribute('pIndex');
+        const btn = document.querySelector('#submit-btn');
+
+        let data = projects[index].array[num];
+
+        console.log(data);
+        console.log(this);
+
+        displayController.editForm(data);
+        // target the toDo from the projects array
+        // create an edit form
+        // fill it with the toDo data
+        // on submit, replace the old data with the new data
+        // render show form with new data in it.
+    }
+
+    function submitEdit(e, data, title, description, dueDate, priority) {
+        e.preventDefault();
+
+        data.title = title.value;
+        data.description = description.value;
+        data.dueDate = dueDate.value;
+        data.priority = priority.value;
+
+        displayController.closeForm();
+        displayController.renderAll();
+
+        console.log(data);
+    }
+
     function removeToDo(e) {
         e.preventDefault();
 
@@ -114,6 +148,6 @@ export const toDoManager = (() => {
         displayController.updateLinks();
     };
 
-    return { addToDo, getToDos, removeToDo, createProject, getProject, getProjectsArray, changeProject, removeProject }
+    return { addToDo, getToDos, removeToDo, createProject, getProject, getProjectsArray, changeProject, removeProject, editTodo, submitEdit }
 
 })();

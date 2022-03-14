@@ -61,6 +61,26 @@ export const displayController = (() => {
         projectForm.firstChild.title.className = 'project-title';
     };
 
+    const editForm = (data) => {
+        showForm();
+        const legend = document.querySelector('legend');
+        const btn = document.querySelector('#submit-btn');
+        const title = document.querySelector('#task-title');
+        const description = document.querySelector('#task-description');
+        const date = document.querySelector('#task-due-date');
+        const priority = document.querySelector('#task-priority');
+
+        legend.innerHTML = 'Edit Task';
+        btn.innerHTML = 'Confirm';
+
+        title.value = data.title;
+        description.value = data.description;
+        date.value = data.dueDate;
+        priority.value = data.priority;
+
+        btn.onclick = (e) => toDoManager.submitEdit(e, data, title, description, date, priority);
+    }
+
     const _clearView = () => {
         const view = document.querySelector('.main-view');
         const button = view.firstChild;
@@ -187,5 +207,6 @@ export const displayController = (() => {
         };
     };
 
-    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader, renderProjectToDos, updateLinks, renderAllProjects, validateForm }
+
+    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader, renderProjectToDos, updateLinks, renderAllProjects, validateForm, editForm }
 })();
