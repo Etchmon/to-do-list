@@ -184,6 +184,14 @@ textarea {
   border-color: crimson !important;
 }
 
+.high-priority,
+.medium-priority,
+.low-priority {
+  background-color: darkslategrey;
+  padding: 1rem;
+  border-radius: 1px;
+}
+
 .high-priority {
   color: crimson;
 }

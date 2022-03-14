@@ -7,8 +7,6 @@ import { toDoManager } from './toDoManager';
 displayController.createDom();
 
 // Things to do
-// Style forms
-// Style the add project button, possibly change placement
 // Add Edit toDo functions, Edit projectTitle functions
 // Create A div that displays the number of tasks in the project
 // Create a div to hold all the todos that scrolls seperately from the add button
