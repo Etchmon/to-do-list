@@ -208,7 +208,8 @@ textarea {
   color: blue;
 }
 
-.card {
+.card,
+.project-card {
   padding: 1rem;
   margin: 0 10vw;
   border: 1px solid lightseagreen;

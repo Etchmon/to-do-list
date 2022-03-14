@@ -59,9 +59,31 @@ export const displayController = (() => {
 
         form.firstChild.title.className = 'task-title';
         projectForm.firstChild.title.className = 'project-title';
+
+        form.firstChild.querySelector('legend').innerHTML = 'New Task...';
+        form.firstChild.querySelector('#submit-btn').onclick = toDoManager.addToDo;
+
+        projectForm.firstChild.querySelector('legend').innerHTML = 'New Project...';
+        projectForm.firstChild.querySelector('#submit-btn').onclick = toDoManager.createProject;
     };
 
     const editForm = (data) => {
+
+        if (data.description == undefined) {
+            showProjectForm();
+            const legend = document.querySelector('.project-form-container').querySelector('legend');
+            const btn = document.querySelector('.project-form-container').querySelector('#submit-btn');
+            const title = document.querySelector('.project-title');
+
+            legend.innerHTML = 'Edit Project';
+            btn.innerHTML = 'Confirm';
+
+            title.value = data.title;
+
+            btn.onclick = (e) => toDoManager.submitEdit(e, data, title);
+            return;
+        }
+
         showForm();
         const legend = document.querySelector('legend');
         const btn = document.querySelector('#submit-btn');

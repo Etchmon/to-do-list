@@ -1,3 +1,4 @@
+import { times } from "lodash";
 import { displayController } from "./displayController";
 // Export auto running toDoManager module
 // -----To Do-------
@@ -72,32 +73,49 @@ export const toDoManager = (() => {
 
     function editTodo(e) {
         e.preventDefault();
+        const element = this.className;
+        if (element === 'project-card') {
+            const key = this.getAttribute('key');
+            const data = projects[key];
 
-        let num = this.getAttribute('key');
-        let index = this.getAttribute('pIndex');
-        const btn = document.querySelector('#submit-btn');
+            console.log(data.description);
 
-        let data = projects[index].array[num];
+            displayController.editForm(data);
+        } else {
+            const num = this.getAttribute('key');
+            const index = this.getAttribute('pIndex');
 
-        console.log(data);
-        console.log(this);
+            const data = projects[index].array[num];
 
-        displayController.editForm(data);
-        // target the toDo from the projects array
-        // create an edit form
-        // fill it with the toDo data
-        // on submit, replace the old data with the new data
-        // render show form with new data in it.
+            console.log(data);
+            console.log(this);
+
+            displayController.editForm(data);
+        }
+
+
     }
 
     function submitEdit(e, data, title, description, dueDate, priority) {
         e.preventDefault();
+
+        if (data.description == undefined) {
+            data.title = title.value;
+
+            title.parentElement.reset();
+            displayController.closeForm();
+            displayController.updateLinks();
+            displayController.renderAllProjects();
+
+            return;
+        }
 
         data.title = title.value;
         data.description = description.value;
         data.dueDate = dueDate.value;
         data.priority = priority.value;
 
+        title.parentElement.reset();
         displayController.closeForm();
         displayController.renderAll();
 

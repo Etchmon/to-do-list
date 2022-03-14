@@ -291,6 +291,8 @@ export const projectCard = () => {
     removeBtn.innerHTML = 'x';
     removeBtn.onclick = toDoManager.removeProject;
 
+    element.onclick = toDoManager.editTodo;
+
     element.appendChild(removeBtn);
     element.appendChild(title);
     element.appendChild(number);
