@@ -131,7 +131,6 @@ html {
 .remove-btn {
   width: min-content;
   font-size: 1rem;
-  margin: 1rem;
   background-color: red;
   border: none;
   border-radius: 5px;
@@ -222,11 +221,14 @@ textarea {
   border: 1px solid lightseagreen;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   hyphens: manual;
   cursor: pointer;
+
+  display: grid;
+  grid-template-columns: 1fr repeat(5, min-content);
+  grid-template-rows: 1fr;
+  grid-column-gap: 1rem;
+  align-items: center;
 }
 
 .card p {

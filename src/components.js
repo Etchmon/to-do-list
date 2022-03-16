@@ -1,6 +1,7 @@
 import HomeIcon from './home.png';
 import Logo from './checkbox.png';
 import ProjectIcon from './lightbulb-group.png';
+import EditIcon from './circle-edit-outline.png';
 import { toDoManager } from './toDoManager';
 import { displayController } from './displayController';
 
@@ -264,6 +265,7 @@ export const card = () => {
     const cardDate = document.createElement('span');
     const prioity = document.createElement('span');
     const removeBtn = document.createElement('button');
+    const editBtn = new Image();
 
     element.setAttribute('class', 'card');
     cardTitle.setAttribute('class', 'card-title');
@@ -275,12 +277,14 @@ export const card = () => {
     removeBtn.innerHTML = 'x';
     removeBtn.onclick = toDoManager.removeToDo;
 
-    element.onclick = toDoManager.editTodo;
+    editBtn.src = EditIcon;
+    editBtn.onclick = toDoManager.editTodo;
 
     element.appendChild(cardTitle);
     element.appendChild(cardDescription);
     element.appendChild(cardDate);
     element.appendChild(prioity);
+    element.appendChild(editBtn);
     element.appendChild(removeBtn);
 
     return element;
@@ -291,6 +295,7 @@ export const projectCard = () => {
     const title = document.createElement('h1');
     const number = document.createElement('span');
     const removeBtn = document.createElement('button');
+    const editBtn = new Image();
 
     element.setAttribute('class', 'project-card');
     removeBtn.setAttribute('class', 'remove-btn');
@@ -298,11 +303,13 @@ export const projectCard = () => {
     removeBtn.innerHTML = 'x';
     removeBtn.onclick = toDoManager.removeProject;
 
-    element.onclick = toDoManager.editTodo;
+    editBtn.src = EditIcon;
+    editBtn.onclick = toDoManager.editTodo;
 
-    element.appendChild(removeBtn);
     element.appendChild(title);
     element.appendChild(number);
+    element.appendChild(editBtn);
+    element.appendChild(removeBtn);
 
     return element;
 };

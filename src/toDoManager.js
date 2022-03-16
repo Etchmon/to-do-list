@@ -72,22 +72,22 @@ export const toDoManager = (() => {
 
     function editTodo(e) {
         e.preventDefault();
-        const element = this.className;
+        const element = this.parentElement.className;
         if (element === 'project-card') {
-            const key = this.getAttribute('key');
+            const key = this.parentElement.getAttribute('key');
             const data = projects[key];
 
             displayController.editForm(data);
         } else if (currentProject != 'Default') {
-            const key = this.getAttribute('key');
+            const key = this.parentElement.getAttribute('key');
             const project = getProject();
 
             const data = project.array[key];
 
             displayController.editForm(data);
         } else {
-            const num = this.getAttribute('key');
-            const index = this.getAttribute('pIndex');
+            const num = this.parentElement.getAttribute('key');
+            const index = this.parentElement.getAttribute('pIndex');
 
             const data = projects[index].array[num];
 
