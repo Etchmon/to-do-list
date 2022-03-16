@@ -6,6 +6,15 @@ import { toDoManager } from './toDoManager';
 
 displayController.createDom();
 
+if (localStorage.getItem('projects') === null) {
+    toDoManager.setLocalStorage();
+    console.log(localStorage);
+} else {
+    toDoManager.getLocalStorage();
+    displayController.renderAll();
+    displayController.updateLinks();
+}
+
 // Things to do
 // Add viewTask method to blue background and display the task
 // Add checked variable to each toDo, holds a true or false value

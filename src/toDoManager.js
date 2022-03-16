@@ -27,6 +27,16 @@ export const toDoManager = (() => {
         return projects;
     };
 
+    const setLocalStorage = () => {
+        localStorage.setItem('projects', JSON.stringify(projects));
+        localStorage.setItem('todos', JSON.stringify(todos));
+    };
+
+    const getLocalStorage = () => {
+        projects = JSON.parse(localStorage.getItem('projects'));
+        todos = JSON.parse(localStorage.getItem('todos'));
+    }
+
     class Project {
         constructor(title) {
             this.title = title,
@@ -68,6 +78,8 @@ export const toDoManager = (() => {
             todos.push(data);
             displayController.renderAll();
         };
+
+        setLocalStorage();
     };
 
     function editTodo(e) {
@@ -127,6 +139,7 @@ export const toDoManager = (() => {
         };
 
         console.log(data);
+        setLocalStorage();
     }
 
     function removeToDo(e) {
@@ -143,6 +156,8 @@ export const toDoManager = (() => {
             projects[index].array.splice(num, 1);
             displayController.renderAll();
         };
+
+        setLocalStorage();
     };
 
     function createProject(e) {
@@ -161,6 +176,8 @@ export const toDoManager = (() => {
         displayController.closeForm();
         displayController.updateLinks();
         displayController.renderProjectToDos();
+
+        setLocalStorage();
     };
 
     function removeProject(e) {
@@ -171,8 +188,10 @@ export const toDoManager = (() => {
         data.splice(num, 1);
         displayController.renderAllProjects();
         displayController.updateLinks();
+
+        setLocalStorage();
     };
 
-    return { addToDo, getToDos, removeToDo, createProject, getProject, getProjectsArray, changeProject, removeProject, editTodo, submitEdit }
+    return { addToDo, getToDos, removeToDo, createProject, getProject, getProjectsArray, changeProject, removeProject, editTodo, submitEdit, getLocalStorage, setLocalStorage }
 
 })();
