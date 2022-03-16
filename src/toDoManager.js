@@ -59,7 +59,6 @@ export const toDoManager = (() => {
         }
 
         const data = new ToDo(this.parentElement.title.value, this.parentElement.description.value, this.parentElement.dueDate.value, this.parentElement.priority.value);
-        // this.parentElement.reset();
         displayController.closeForm();
 
         if (currentProject != 'Default') {
@@ -103,23 +102,21 @@ export const toDoManager = (() => {
     function submitEdit(e, data, title, description, dueDate, priority) {
         e.preventDefault();
 
-        if (data.description == undefined) {
+        if (data.description === undefined) {
             data.title = title.value;
 
-            // title.parentElement.reset();
             displayController.closeForm();
             displayController.updateLinks();
             displayController.renderAllProjects();
 
             return;
-        }
+        };
 
         data.title = title.value;
         data.description = description.value;
         data.dueDate = dueDate.value;
         data.priority = priority.value;
 
-        // title.parentElement.reset();
         displayController.closeForm();
         switch (currentProject) {
             case 'Default':
@@ -127,7 +124,7 @@ export const toDoManager = (() => {
                 break;
             default:
                 displayController.renderProjectToDos();
-        }
+        };
 
         console.log(data);
     }

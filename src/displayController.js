@@ -37,6 +37,14 @@ export const displayController = (() => {
     };
 
     const showForm = () => {
+
+        const element = document.querySelector('.main-header');
+
+        if (element.innerHTML === 'All Projects') {
+            showProjectForm();
+            return;
+        }
+
         const form = document.querySelector('.form-container');
 
         form.className = 'form-container';

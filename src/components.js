@@ -92,8 +92,6 @@ export const main = () => {
     const viewHeader = document.createElement('div');
     const grid = document.createElement('div');
     const button = document.createElement('button');
-    const allTasks = document.createElement('span');
-    const completedTasks = document.createElement('span');
 
     element.setAttribute('class', 'main');
     header.setAttribute('class', 'main-header');
@@ -101,8 +99,6 @@ export const main = () => {
     button.setAttribute('class', 'add-btn');
     viewHeader.setAttribute('class', 'view-header');
     grid.setAttribute('class', 'view-grid');
-    allTasks.setAttribute('class', 'all-tasks');
-    completedTasks.setAttribute('class', 'completed-tasks');
 
     header.innerHTML = 'All Tasks';
     button.innerHTML = '+';
@@ -110,8 +106,6 @@ export const main = () => {
     button.onclick = displayController.showForm;
 
     viewHeader.appendChild(button);
-    viewHeader.appendChild(allTasks);
-    viewHeader.appendChild(completedTasks);
 
     view.appendChild(viewHeader);
     view.appendChild(grid);

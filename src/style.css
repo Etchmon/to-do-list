@@ -114,10 +114,8 @@ html {
   box-sizing: content-box;
 }
 
-.view-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.view-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .add-btn {
@@ -128,8 +126,6 @@ html {
   font-size: 2rem;
   border-radius: 50%;
   background-color: lightseagreen;
-
-  justify-self: flex-start;
 }
 
 .remove-btn {
@@ -222,7 +218,7 @@ textarea {
 .card,
 .project-card {
   padding: 1rem;
-  margin: 0 15vw 0 1rem;
+  margin: 0 15vw 0 0;
   border: 1px solid lightseagreen;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 5px;
