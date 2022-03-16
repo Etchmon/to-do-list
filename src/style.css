@@ -86,7 +86,6 @@ html {
   display: grid;
   grid-template-rows: min-content 1fr;
   grid-template-columns: 1fr;
-  max-height: 100vh;
 }
 
 .main-header {
@@ -99,13 +98,26 @@ html {
 .main-view {
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: min-content 1fr;
+  background-color: rgb(207, 245, 242);
+  max-height: 90vh;
+}
+
+.view-grid {
+  display: grid;
+  grid-template-columns: 1fr;
   grid-template-rows: repeat(auto-fit, minmax(5.375rem, min-content));
   grid-row-gap: 1rem;
   padding: 1rem;
-  background-color: rgb(207, 245, 242);
   overflow-x: hidden;
   overflow-y: scroll;
   box-sizing: content-box;
+}
+
+.view-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-btn {
@@ -117,8 +129,7 @@ html {
   border-radius: 50%;
   background-color: lightseagreen;
 
-  grid-row: 1 / 1;
-  grid-column: 1 / -1;
+  justify-self: flex-start;
 }
 
 .remove-btn {

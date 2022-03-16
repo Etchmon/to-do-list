@@ -70,7 +70,7 @@ export const displayController = (() => {
 
     const editForm = (data) => {
 
-        if (data.description == undefined) {
+        if (data.description === undefined) {
             showProjectForm();
             const legend = document.querySelector('.project-form-container').querySelector('legend');
             const btn = document.querySelector('.project-form-container').querySelector('#submit-btn');
@@ -105,10 +105,8 @@ export const displayController = (() => {
     }
 
     const _clearView = () => {
-        const view = document.querySelector('.main-view');
-        const button = view.firstChild;
+        const view = document.querySelector('.view-grid');
         view.innerHTML = '';
-        view.appendChild(button);
     };
 
     const renderAll = () => {
@@ -119,7 +117,7 @@ export const displayController = (() => {
 
         const todos = toDoManager.getToDos();
         const projects = toDoManager.getProjectsArray();
-        const view = document.querySelector('.main-view');
+        const view = document.querySelector('.view-grid');
 
         projects.forEach(Project => {
             let pIndex = projects.indexOf(Project);
@@ -162,7 +160,7 @@ export const displayController = (() => {
         setHeader('All Projects');
 
         const projects = toDoManager.getProjectsArray();
-        const view = document.querySelector('.main-view');
+        const view = document.querySelector('.view-grid');
 
         toDoManager.changeProject(projects);
 
@@ -188,7 +186,7 @@ export const displayController = (() => {
         _clearView();
         let data = toDoManager.getProject();
         setHeader(data.title);
-        const view = document.querySelector('.main-view');
+        const view = document.querySelector('.view-grid');
         let i = 0;
 
         data.array.forEach(toDo => {

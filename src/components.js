@@ -89,19 +89,32 @@ export const main = () => {
     const element = document.createElement('section');
     const header = document.createElement('div');
     const view = document.createElement('div');
+    const viewHeader = document.createElement('div');
+    const grid = document.createElement('div');
     const button = document.createElement('button');
+    const allTasks = document.createElement('span');
+    const completedTasks = document.createElement('span');
 
     element.setAttribute('class', 'main');
     header.setAttribute('class', 'main-header');
     view.setAttribute('class', 'main-view');
     button.setAttribute('class', 'add-btn');
+    viewHeader.setAttribute('class', 'view-header');
+    grid.setAttribute('class', 'view-grid');
+    allTasks.setAttribute('class', 'all-tasks');
+    completedTasks.setAttribute('class', 'completed-tasks');
 
     header.innerHTML = 'All Tasks';
     button.innerHTML = '+';
 
     button.onclick = displayController.showForm;
 
-    view.appendChild(button);
+    viewHeader.appendChild(button);
+    viewHeader.appendChild(allTasks);
+    viewHeader.appendChild(completedTasks);
+
+    view.appendChild(viewHeader);
+    view.appendChild(grid);
 
     element.appendChild(header);
     element.appendChild(view);
