@@ -121,7 +121,13 @@ export const toDoManager = (() => {
 
         title.parentElement.reset();
         displayController.closeForm();
-        displayController.renderAll();
+        switch (currentProject) {
+            case 'Default':
+                displayController.renderAll();
+                break;
+            default:
+                displayController.renderProjectToDos();
+        }
 
         console.log(data);
     }
