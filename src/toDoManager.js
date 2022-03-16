@@ -59,7 +59,7 @@ export const toDoManager = (() => {
         }
 
         const data = new ToDo(this.parentElement.title.value, this.parentElement.description.value, this.parentElement.dueDate.value, this.parentElement.priority.value);
-        this.parentElement.reset();
+        // this.parentElement.reset();
         displayController.closeForm();
 
         if (currentProject != 'Default') {
@@ -106,7 +106,7 @@ export const toDoManager = (() => {
         if (data.description == undefined) {
             data.title = title.value;
 
-            title.parentElement.reset();
+            // title.parentElement.reset();
             displayController.closeForm();
             displayController.updateLinks();
             displayController.renderAllProjects();
@@ -119,7 +119,7 @@ export const toDoManager = (() => {
         data.dueDate = dueDate.value;
         data.priority = priority.value;
 
-        title.parentElement.reset();
+        // title.parentElement.reset();
         displayController.closeForm();
         switch (currentProject) {
             case 'Default':

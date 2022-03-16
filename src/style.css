@@ -211,7 +211,7 @@ textarea {
 .card,
 .project-card {
   padding: 1rem;
-  margin: 0 10vw;
+  margin: 0 15vw 0 1rem;
   border: 1px solid lightseagreen;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 5px;

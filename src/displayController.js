@@ -57,12 +57,13 @@ export const displayController = (() => {
         form.className = 'form-container hide-form';
         projectForm.className = 'project-form-container hide-form';
 
+        form.firstChild.reset();
         form.firstChild.title.className = 'task-title';
-        projectForm.firstChild.title.className = 'project-title';
-
         form.firstChild.querySelector('legend').innerHTML = 'New Task...';
         form.firstChild.querySelector('#submit-btn').onclick = toDoManager.addToDo;
 
+        projectForm.firstChild.reset();
+        projectForm.firstChild.title.className = 'project-title';
         projectForm.firstChild.querySelector('legend').innerHTML = 'New Project...';
         projectForm.firstChild.querySelector('#submit-btn').onclick = toDoManager.createProject;
     };
