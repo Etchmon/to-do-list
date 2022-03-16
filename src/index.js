@@ -7,8 +7,8 @@ import { toDoManager } from './toDoManager';
 displayController.createDom();
 
 // Things to do
-// Add Edit toDo functions, Edit projectTitle functions
 // Add viewTask method to blue background and display the task
+// Add checked variable to each toDo, holds a true or false value
 // Create A div that displays the number of tasks in the project
 // Create a div to hold all the todos that scrolls seperately from the add button
 // Add ability to mark a task complete, which turns its urgency level blue

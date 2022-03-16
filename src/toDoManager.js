@@ -78,8 +78,6 @@ export const toDoManager = (() => {
             const key = this.getAttribute('key');
             const data = projects[key];
 
-            console.log(data.description);
-
             displayController.editForm(data);
         } else if (currentProject != 'Default') {
             const key = this.getAttribute('key');
@@ -98,10 +96,9 @@ export const toDoManager = (() => {
             console.log(this);
 
             displayController.editForm(data);
-        }
+        };
 
-
-    }
+    };
 
     function submitEdit(e, data, title, description, dueDate, priority) {
         e.preventDefault();
