@@ -216,7 +216,7 @@ textarea {
 
 .card,
 .project-card {
-  padding: 1rem;
+  padding: 1rem 3rem;
   margin: 0 15vw 0 0;
   border: 1px solid lightseagreen;
   background-color: rgba(0, 0, 0, 0.2);
@@ -229,6 +229,7 @@ textarea {
   grid-template-rows: 1fr;
   grid-column-gap: 1rem;
   align-items: center;
+  white-space: nowrap;
 }
 
 .card p {

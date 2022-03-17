@@ -1,3 +1,4 @@
+import { da } from "date-fns/locale";
 import { get, times } from "lodash";
 import { displayController } from "./displayController";
 // Export auto running toDoManager module

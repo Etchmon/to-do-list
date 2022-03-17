@@ -1,6 +1,8 @@
 import { sideBar, main, form, card, projectForm, projectLink, projectCard } from './components';
 import { toDoManager } from './toDoManager';
 import _ from 'lodash';
+import { compareAsc, format } from 'date-fns';
+
 
 export const displayController = (() => {
 
@@ -35,6 +37,18 @@ export const displayController = (() => {
             div.appendChild(element);
         };
     };
+
+    const checkLocalStorage = () => {
+        if (localStorage.getItem('projects') === null) {
+            toDoManager.setLocalStorage();
+            console.log(localStorage);
+        } else {
+            toDoManager.getLocalStorage();
+            renderAll();
+            console.log('this')
+            updateLinks();
+        }
+    }
 
     const showForm = () => {
 
@@ -133,9 +147,10 @@ export const displayController = (() => {
             Project.array.forEach(toDo => {
                 let key = Project.array.indexOf(toDo);
                 const element = card();
+
                 element.querySelector('h1').innerHTML = toDo.title;
                 element.querySelector('p').innerHTML = toDo.description;
-                element.querySelector('span').innerHTML = toDo.dueDate;
+                element.querySelector('span').innerHTML = format(new Date(toDo.dueDate), 'PPpp');
                 element.setAttribute('key', key);
                 element.setAttribute('pIndex', pIndex);
 
@@ -237,5 +252,5 @@ export const displayController = (() => {
     };
 
 
-    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader, renderProjectToDos, updateLinks, renderAllProjects, validateForm, editForm }
+    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader, renderProjectToDos, updateLinks, renderAllProjects, validateForm, editForm, checkLocalStorage }
 })();
