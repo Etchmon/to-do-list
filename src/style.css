@@ -181,6 +181,13 @@ html {
   font-size: 1.5rem;
 }
 
+.form button {
+  border: none;
+  background-color: rgb(0 0 0 / 90%);
+  color: rgb(3 218 198);
+  padding: 0.3rem;
+}
+
 .form legend,
 #task-title,
 #task-description,
