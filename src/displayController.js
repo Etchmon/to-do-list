@@ -2,6 +2,7 @@ import { sideBar, main, form, card, projectForm, projectLink, projectCard } from
 import { toDoManager } from './toDoManager';
 import _ from 'lodash';
 import { compareAsc, format } from 'date-fns';
+import { de } from 'date-fns/locale';
 
 
 export const displayController = (() => {
@@ -45,7 +46,6 @@ export const displayController = (() => {
         } else {
             toDoManager.getLocalStorage();
             renderAll();
-            console.log('this');
             updateLinks();
         }
     }
@@ -137,7 +137,6 @@ export const displayController = (() => {
         setHeader('All Tasks');
         toDoManager.changeProject('Default');
 
-        const todos = toDoManager.getToDos();
         const projects = toDoManager.getProjectsArray();
         const view = document.querySelector('.view-grid');
 
@@ -150,10 +149,16 @@ export const displayController = (() => {
 
                 element.querySelector('h1').innerHTML = toDo.title;
                 element.querySelector('p').innerHTML = toDo.description;
-                element.querySelector('span').innerHTML = format(new Date(toDo.dueDate), 'PPpp');
+                switch (toDo.dueDate) {
+                    case '':
+                        element.querySelector('span').innerHTML = toDo.dueDate;
+                        break;
+                    default:
+                        element.querySelector('span').innerHTML = format(new Date(toDo.dueDate), 'MMM, do');
+                        break;;
+                }
                 element.setAttribute('key', key);
                 element.setAttribute('pIndex', pIndex);
-
                 switch (toDo.priority) {
                     case 'Priority Level...':
                         element.querySelector('.priority-level').innerHTML = '';
@@ -216,7 +221,7 @@ export const displayController = (() => {
             const element = card();
             element.querySelector('h1').innerHTML = toDo.title;
             element.querySelector('p').innerHTML = toDo.description;
-            element.querySelector('span').innerHTML = format(new Date(toDo.dueDate), 'PPpp');
+            element.querySelector('span').innerHTML = format(new Date(toDo.dueDate), 'MMM, do');
             element.setAttribute('key', i);
 
             switch (toDo.priority) {
