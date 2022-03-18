@@ -1,4 +1,4 @@
-import { sideBar, main, form, card, projectForm, projectLink, projectCard } from './components';
+import { sideBar, main, form, card, projectForm, projectLink, projectCard, cardView } from './components';
 import { toDoManager } from './toDoManager';
 import _ from 'lodash';
 import { compareAsc, format } from 'date-fns';
@@ -148,14 +148,13 @@ export const displayController = (() => {
                 const element = card();
 
                 element.querySelector('h1').innerHTML = toDo.title;
-                element.querySelector('p').innerHTML = toDo.description;
                 switch (toDo.dueDate) {
                     case '':
                         element.querySelector('span').innerHTML = toDo.dueDate;
                         break;
                     default:
                         element.querySelector('span').innerHTML = format(new Date(toDo.dueDate), 'MMM, do');
-                        break;;
+                        break;
                 }
                 element.setAttribute('key', key);
                 element.setAttribute('pIndex', pIndex);
@@ -220,8 +219,14 @@ export const displayController = (() => {
         data.array.forEach(toDo => {
             const element = card();
             element.querySelector('h1').innerHTML = toDo.title;
-            element.querySelector('p').innerHTML = toDo.description;
-            element.querySelector('span').innerHTML = format(new Date(toDo.dueDate), 'MMM, do');
+            switch (toDo.dueDate) {
+                case '':
+                    element.querySelector('span').innerHTML = toDo.dueDate;
+                    break;
+                default:
+                    element.querySelector('span').innerHTML = format(new Date(toDo.dueDate), 'MMM, do');
+                    break;;
+            };
             element.setAttribute('key', i);
 
             switch (toDo.priority) {
@@ -256,6 +261,89 @@ export const displayController = (() => {
         };
     };
 
+    function viewCard() {
 
-    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader, renderProjectToDos, updateLinks, renderAllProjects, validateForm, editForm, checkLocalStorage }
+        const project = toDoManager.getProject();
+        const dom = document.querySelector('#content');
+
+        if (project === 'Default') {
+            const key = this.parentElement.getAttribute('key');
+            const index = this.parentElement.getAttribute('pIndex');
+
+            const data = toDoManager.getProjectsArray()[index].array[key];
+            console.log(data);
+            const element = cardView();
+
+            element.querySelector('h1').innerHTML = data.title;
+            element.querySelector('p').innerHTML = data.description;
+            switch (data.dueDate) {
+                case '':
+                    element.querySelector('span').innerHTML = data.dueDate;
+                    break;
+                default:
+                    element.querySelector('span').innerHTML = format(new Date(data.dueDate), 'PPpp');
+                    break;
+            };
+            switch (data.priority) {
+                case 'Priority Level...':
+                    element.querySelector('.card-view-prio').innerHTML = '';
+                    break;
+                case 'low':
+                    element.querySelector('.card-view-prio').innerHTML = data.priority;
+                    element.querySelector('.card-view-prio').classList.add('low-priority');
+                    break;
+                case 'medium':
+                    element.querySelector('.card-view-prio').innerHTML = data.priority;
+                    element.querySelector('.card-view-prio').classList.add('medium-priority');
+                    break;
+                case 'high':
+                    element.querySelector('.card-view-prio').innerHTML = data.priority;
+                    element.querySelector('.card-view-prio').classList.add('high-priority');
+                    break;
+            };
+
+            dom.appendChild(element);
+
+        } else {
+            const key = this.parentElement.getAttribute('key');
+
+            const data = project.array[key];
+            console.log(data);
+            const element = cardView();
+
+            element.querySelector('h1').innerHTML = data.title;
+            element.querySelector('p').innerHTML = data.description;
+            switch (data.dueDate) {
+                case '':
+                    element.querySelector('span').innerHTML = data.dueDate;
+                    break;
+                default:
+                    element.querySelector('span').innerHTML = format(new Date(data.dueDate), 'PPpp');
+                    break;
+            };
+            switch (data.priority) {
+                case 'Priority Level...':
+                    element.querySelector('.card-view-prio').innerHTML = '';
+                    break;
+                case 'low':
+                    element.querySelector('.card-view-prio').innerHTML = data.priority;
+                    element.querySelector('.card-view-prio').classList.add('low-priority');
+                    break;
+                case 'medium':
+                    element.querySelector('.card-view-prio').innerHTML = data.priority;
+                    element.querySelector('.card-view-prio').classList.add('medium-priority');
+                    break;
+                case 'high':
+                    element.querySelector('.card-view-prio').innerHTML = data.priority;
+                    element.querySelector('.card-view-prio').classList.add('high-priority');
+                    break;
+            };
+
+            dom.appendChild(element);
+        };
+
+    }
+
+
+    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader, renderProjectToDos, updateLinks, renderAllProjects, validateForm, editForm, checkLocalStorage, viewCard }
 })();

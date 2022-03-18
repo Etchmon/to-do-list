@@ -261,7 +261,7 @@ export const form = () => {
 export const card = () => {
     const element = document.createElement('div');
     const cardTitle = document.createElement('h1');
-    const cardDescription = document.createElement('p');
+    const cardDetails = document.createElement('button');
     const cardDate = document.createElement('span');
     const prioity = document.createElement('span');
     const removeBtn = document.createElement('button');
@@ -269,7 +269,7 @@ export const card = () => {
 
     element.setAttribute('class', 'card');
     cardTitle.setAttribute('class', 'card-title');
-    cardDescription.setAttribute('class', 'card-description');
+    cardDetails.setAttribute('class', 'card-details');
     cardDate.setAttribute('class', 'card-date');
     prioity.setAttribute('class', 'priority-level');
     removeBtn.setAttribute('class', 'remove-btn');
@@ -277,18 +277,45 @@ export const card = () => {
     removeBtn.innerHTML = 'x';
     removeBtn.onclick = toDoManager.removeToDo;
 
+    cardDetails.innerHTML = 'Details';
+    cardDetails.onclick = displayController.viewCard;
+
     editBtn.src = EditIcon;
     editBtn.onclick = toDoManager.editTodo;
 
-    element.appendChild(cardTitle);
-    element.appendChild(cardDescription);
-    element.appendChild(cardDate);
-    element.appendChild(prioity);
-    element.appendChild(editBtn);
     element.appendChild(removeBtn);
+    element.appendChild(cardTitle);
+    element.appendChild(prioity);
+    element.appendChild(cardDate);
+    element.appendChild(cardDetails);
+    element.appendChild(editBtn);
+
 
     return element;
 };
+
+export const cardView = () => {
+    const element = document.createElement('div');
+    const title = document.createElement('h1');
+    const description = document.createElement('p');
+    const date = document.createElement('span');
+    const prio = document.createElement('span');
+    const closeBtn = document.createElement('button');
+
+    element.setAttribute('class', 'card-view');
+    date.setAttribute('class', 'card-view-date');
+    prio.setAttribute('class', 'card-view-prio');
+
+    closeBtn.innerHTML = 'x'
+
+    element.appendChild(title);
+    element.appendChild(description);
+    element.appendChild(date);
+    element.appendChild(prio);
+    element.appendChild(closeBtn);
+
+    return element;
+}
 
 export const projectCard = () => {
     const element = document.createElement('div');
