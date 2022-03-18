@@ -238,6 +238,14 @@ textarea {
   -webkit-transition: 0.5s;
   overflow: auto;
   transition: all 0.3s linear;
+  color: rgb(255 255 255 / 95%);
+}
+
+.card-view h1 {
+  border-bottom: 1px solid rgb(255 255 255 / 95%);
+  margin-bottom: 1rem;
+  letter-spacing: 0.5rem;
+  font-style: italic;
 }
 
 .card-view button {

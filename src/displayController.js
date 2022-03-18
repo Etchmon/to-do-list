@@ -72,6 +72,13 @@ export const displayController = (() => {
         form.className = 'project-form-container';
     };
 
+    const closeView = () => {
+        const content = document.querySelector('#content');
+        const cardView = document.querySelector('.card-view');
+
+        content.removeChild(cardView);
+    }
+
     const closeForm = () => {
         const form = document.querySelector('.form-container');
         const projectForm = document.querySelector('.project-form-container');
@@ -165,17 +172,17 @@ export const displayController = (() => {
                     case 'low':
                         element.querySelector('.priority-level').innerHTML = toDo.priority;
                         element.querySelector('.priority-level').classList.add('low-priority');
-                        element.style.borderLeft = '5px solid green'
+                        element.style.borderLeft = '5px solid green';
                         break;
                     case 'medium':
                         element.querySelector('.priority-level').innerHTML = toDo.priority;
                         element.querySelector('.priority-level').classList.add('medium-priority');
-                        element.style.borderLeft = '5px solid gold'
+                        element.style.borderLeft = '5px solid gold';
                         break;
                     case 'high':
                         element.querySelector('.priority-level').innerHTML = toDo.priority;
                         element.querySelector('.priority-level').classList.add('high-priority');
-                        element.style.borderLeft = '5px solid red'
+                        element.style.borderLeft = '5px solid red';
                         break;
                 };
 
@@ -348,5 +355,5 @@ export const displayController = (() => {
     }
 
 
-    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader, renderProjectToDos, updateLinks, renderAllProjects, validateForm, editForm, checkLocalStorage, viewCard }
+    return { createDom, showForm, closeForm, renderAll, showProjectForm, setHeader, renderProjectToDos, updateLinks, renderAllProjects, validateForm, editForm, checkLocalStorage, viewCard, closeView }
 })();

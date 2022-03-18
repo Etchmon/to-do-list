@@ -307,6 +307,7 @@ export const cardView = () => {
     prio.setAttribute('class', 'card-view-prio');
 
     closeBtn.innerHTML = 'x'
+    closeBtn.onclick = displayController.closeView;
 
     element.appendChild(title);
     element.appendChild(description);
