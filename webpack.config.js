@@ -4,11 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: {
         index: './src/index.js',
-        print: './src/toDoManager.js',
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Output Management',
+            title: 'To Do',
         }),
     ],
     output: {

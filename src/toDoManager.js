@@ -1,9 +1,6 @@
 import { da } from "date-fns/locale";
 import { get, times } from "lodash";
 import { displayController } from "./displayController";
-// Export auto running toDoManager module
-// -----To Do-------
-// Edit Todos and project, recreate form filled with data from item being edited
 
 export const toDoManager = (() => {
 
@@ -13,8 +10,8 @@ export const toDoManager = (() => {
             title: "Default",
             array: []
         }
-    ]; // an array of objects containing an array of objects
-    let todos = projects[0].array; // array of default todos
+    ];
+    let todos = projects[0].array;
 
     const changeProject = (newProject) => {
         currentProject = newProject;

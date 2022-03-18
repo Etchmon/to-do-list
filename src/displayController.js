@@ -150,10 +150,10 @@ export const displayController = (() => {
                 element.querySelector('h1').innerHTML = toDo.title;
                 switch (toDo.dueDate) {
                     case '':
-                        element.querySelector('span').innerHTML = toDo.dueDate;
+                        element.querySelector('.card-date').innerHTML = toDo.dueDate;
                         break;
                     default:
-                        element.querySelector('span').innerHTML = format(new Date(toDo.dueDate), 'MMM, do');
+                        element.querySelector('.card-date').innerHTML = format(new Date(toDo.dueDate), 'MMM, do');
                         break;
                 }
                 element.setAttribute('key', key);
@@ -165,14 +165,17 @@ export const displayController = (() => {
                     case 'low':
                         element.querySelector('.priority-level').innerHTML = toDo.priority;
                         element.querySelector('.priority-level').classList.add('low-priority');
+                        element.style.borderLeft = '5px solid green'
                         break;
                     case 'medium':
                         element.querySelector('.priority-level').innerHTML = toDo.priority;
                         element.querySelector('.priority-level').classList.add('medium-priority');
+                        element.style.borderLeft = '5px solid gold'
                         break;
                     case 'high':
                         element.querySelector('.priority-level').innerHTML = toDo.priority;
                         element.querySelector('.priority-level').classList.add('high-priority');
+                        element.style.borderLeft = '5px solid red'
                         break;
                 };
 
@@ -195,7 +198,7 @@ export const displayController = (() => {
             let key = projects.indexOf(Project);
             const element = projectCard();
             element.querySelector('h1').innerHTML = Project.title;
-            element.querySelector('span').innerHTML = Project.array.length;
+            element.querySelector('span').innerHTML = 'Tasks left: ' + Project.array.length;
             element.setAttribute('key', key);
 
             view.appendChild(element);
@@ -221,10 +224,10 @@ export const displayController = (() => {
             element.querySelector('h1').innerHTML = toDo.title;
             switch (toDo.dueDate) {
                 case '':
-                    element.querySelector('span').innerHTML = toDo.dueDate;
+                    element.querySelector('.card-date').innerHTML = toDo.dueDate;
                     break;
                 default:
-                    element.querySelector('span').innerHTML = format(new Date(toDo.dueDate), 'MMM, do');
+                    element.querySelector('.card-date').innerHTML = format(new Date(toDo.dueDate), 'MMM, do');
                     break;;
             };
             element.setAttribute('key', i);

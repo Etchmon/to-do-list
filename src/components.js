@@ -61,7 +61,7 @@ export const sideBar = () => {
     home.innerHTML = 'Home';
     projects.innerHTML = 'Projects';
     addProject.innerHTML = '+';
-    btnHeader.innerHTML = 'New Project';
+    btnHeader.innerHTML = 'Add Project';
 
     addProject.onclick = displayController.showProjectForm;
     home.onclick = displayController.renderAll;
@@ -333,10 +333,10 @@ export const projectCard = () => {
     editBtn.src = EditIcon;
     editBtn.onclick = toDoManager.editTodo;
 
+    element.appendChild(removeBtn);
     element.appendChild(title);
     element.appendChild(number);
     element.appendChild(editBtn);
-    element.appendChild(removeBtn);
 
     return element;
 };
