@@ -45,7 +45,7 @@ export const displayController = (() => {
         } else {
             toDoManager.getLocalStorage();
             renderAll();
-            console.log('this')
+            console.log('this');
             updateLinks();
         }
     }
@@ -216,7 +216,7 @@ export const displayController = (() => {
             const element = card();
             element.querySelector('h1').innerHTML = toDo.title;
             element.querySelector('p').innerHTML = toDo.description;
-            element.querySelector('span').innerHTML = toDo.dueDate;
+            element.querySelector('span').innerHTML = format(new Date(toDo.dueDate), 'PPpp');
             element.setAttribute('key', i);
 
             switch (toDo.priority) {

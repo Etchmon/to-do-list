@@ -30,12 +30,10 @@ export const toDoManager = (() => {
 
     const setLocalStorage = () => {
         localStorage.setItem('projects', JSON.stringify(projects));
-        localStorage.setItem('todos', JSON.stringify(todos));
     };
 
     const getLocalStorage = () => {
         projects = JSON.parse(localStorage.getItem('projects'));
-        todos = JSON.parse(localStorage.getItem('todos'));
     }
 
     class Project {
@@ -76,7 +74,7 @@ export const toDoManager = (() => {
             currentProject.array.push(data);
             displayController.renderProjectToDos();
         } else {
-            todos.push(data);
+            projects[0].array.push(data);
             displayController.renderAll();
         };
 
