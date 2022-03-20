@@ -12,6 +12,8 @@ window.onload = displayController.checkLocalStorage();
 // New color scheme, font, border styles, animations
 // closeView menthod
 // sort methods
+// Navigate to project when project card is clicked
+// Change grid style when showing project cards
 
 
 
