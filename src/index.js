@@ -14,7 +14,8 @@ window.onload = displayController.checkLocalStorage();
 // sort methods
 // Navigate to project when project card is clicked
 // Change grid style when showing project cards
-
+// Add ability to use keys for input
+// Reverse colors on forms
 
 
 
